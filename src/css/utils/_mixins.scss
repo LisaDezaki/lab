@@ -1,0 +1,265 @@
+//  absolute
+
+@mixin absolute($t: 0, $r: 0, $b: 0, $l: 0) {
+  position: absolute;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+}
+
+//  breakpoints
+
+@mixin bp-max($bp) {
+  // @if      $bp == xs { @media ( max-width:    320px ) { @content; } }
+  @if $bp == sm {
+    @media (max-width: 480px) {
+      @content;
+    }
+  } @else if $bp == md {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $bp == lg {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  } @else if $bp == xl {
+    @media (max-width: 1366px) {
+      @content;
+    }
+  } @else {
+    @media ( max-width: #{$bp}px ) {
+      @content;
+    }
+  }
+}
+
+@mixin bp-min($bp) {
+  @if $bp == xs {
+    @media (min-width: 320px) {
+      @content;
+    }
+  } @else if $bp == sm {
+    @media (min-width: 480px) {
+      @content;
+    }
+  } @else if $bp == md {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $bp == lg {
+    @media (min-width: 1024px) {
+      @content;
+    }
+  } @else if $bp == xl {
+    @media (min-width: 1366px) {
+      @content;
+    }
+  } @else {
+    @media ( min-width: #{$bp}px ) {
+      @content;
+    }
+  }
+}
+
+//  fixed
+
+@mixin fixed($t: 0, $r: 0, $b: 0, $l: 0) {
+  position: fixed;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+}
+
+//  flex
+
+@mixin flex($h: c, $v: m, $dir: row, $display: block, $wrap: nowrap) {
+  @if $display == block {
+    display: flex;
+  }
+  @if $display == inline {
+    display: inline-flex;
+  }
+
+  @if $wrap == wrap {
+    flex-wrap: wrap;
+  }
+  @if $wrap == nowrap {
+    flex-wrap: nowrap;
+  }
+
+  @if $dir == row or $dir == rowr {
+    @if $dir == row {
+      flex-direction: row;
+      @if $h == l {
+        justify-content: flex-start;
+      }
+      @if $h == r {
+        justify-content: flex-end;
+      }
+    }
+    @if $dir == rowr {
+      flex-direction: row-reverse;
+      @if $h == l {
+        justify-content: flex-end;
+      }
+      @if $h == r {
+        justify-content: flex-start;
+      }
+    }
+    @if $h == c {
+      justify-content: center;
+    }
+    @if $h == space {
+      justify-content: space-around;
+    }
+    @if $h == spread {
+      justify-content: space-between;
+    }
+    @if $v == t {
+      align-items: flex-start;
+    }
+    @if $v == m {
+      align-items: center;
+    }
+    @if $v == b {
+      align-items: flex-end;
+    }
+    @if $v == stretch {
+      align-items: stretch;
+    }
+  }
+  @if $dir == col or $dir == colr {
+    @if $dir == col {
+      flex-direction: column;
+      @if $v == t {
+        justify-content: flex-start;
+      }
+      @if $v == b {
+        justify-content: flex-end;
+      }
+    }
+    @if $dir == colr {
+      flex-direction: column-reverse;
+      @if $v == t {
+        justify-content: flex-end;
+      }
+      @if $v == b {
+        justify-content: flex-start;
+      }
+    }
+    @if $h == l {
+      align-items: flex-start;
+    }
+    @if $h == c {
+      align-items: center;
+    }
+    @if $h == r {
+      align-items: flex-end;
+    }
+    @if $v == stretch {
+      align-items: stretch;
+    }
+    @if $v == m {
+      justify-content: center;
+    }
+    @if $v == space {
+      justify-content: space-around;
+    }
+    @if $v == spread {
+      justify-content: space-between;
+    }
+  }
+}
+
+//  parallax
+
+@mixin parallax($n) {
+  &::after {
+    @include absolute(0, 0, 0, 0);
+    content: "";
+    transform: translateZ(-#{$n}px) scale(#{$n * 2});
+    z-index: $n;
+  }
+}
+
+//  ratio (aspect ratio)
+
+@mixin ratio($w, $h) {
+  &::after {
+    // box-sizing: border-box;
+    content: "";
+    display: block;
+    // height: 0;
+    // padding: 0;
+    padding-top: calc((100% / #{$w}) * #{$h});
+  }
+}
+
+//  shadow (box shadow)
+
+@mixin shadow($n, $dir: b) {
+  @if $n == 0 {
+    box-shadow: none;
+  }
+  @if $dir == b {
+    @if $n == 1 {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+    @if $n == 2 {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    }
+    @if $n == 3 {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+    @if $n == 4 {
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    }
+    @if $n == 5 {
+      box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+        0 15px 12px rgba(0, 0, 0, 0.22);
+    }
+  }
+  @if $dir == r {
+    @if $n == 1 {
+      box-shadow: 1px 0 3px rgba(0, 0, 0, 0.12), 1px 0 2px rgba(0, 0, 0, 0.24);
+    }
+    @if $n == 2 {
+      box-shadow: 3px 0 6px rgba(0, 0, 0, 0.16), 3px 0 6px rgba(0, 0, 0, 0.23);
+    }
+    @if $n == 3 {
+      box-shadow: 10px 0 20px rgba(0, 0, 0, 0.19), 6px 0 6px rgba(0, 0, 0, 0.23);
+    }
+    @if $n == 4 {
+      box-shadow: 14px 0 28px rgba(0, 0, 0, 0.25),
+        10px 0 10px rgba(0, 0, 0, 0.22);
+    }
+    @if $n == 5 {
+      box-shadow: 19px 0 38px rgba(0, 0, 0, 0.3),
+        15px 0 12px rgba(0, 0, 0, 0.22);
+    }
+  }
+  @if $dir == l {
+    @if $n == 1 {
+      box-shadow: -1px 0 3px rgba(0, 0, 0, 0.12), -1px 0 2px rgba(0, 0, 0, 0.24);
+    }
+    @if $n == 2 {
+      box-shadow: -3px 0 6px rgba(0, 0, 0, 0.16), -3px 0 6px rgba(0, 0, 0, 0.23);
+    }
+    @if $n == 3 {
+      box-shadow: -10px 0 20px rgba(0, 0, 0, 0.19),
+        -6px 0 6px rgba(0, 0, 0, 0.23);
+    }
+    @if $n == 4 {
+      box-shadow: -14px 0 28px rgba(0, 0, 0, 0.25),
+        -10px 0 10px rgba(0, 0, 0, 0.22);
+    }
+    @if $n == 5 {
+      box-shadow: -19px 0 38px rgba(0, 0, 0, 0.3),
+        -15px 0 12px rgba(0, 0, 0, 0.22);
+    }
+  }
+}

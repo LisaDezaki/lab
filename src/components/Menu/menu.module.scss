@@ -1,0 +1,63 @@
+@import "src/css/utils";
+
+.menu {
+  @include fixed(0, auto, 0, 0);
+  @include flex(stretch, m, col);
+  background-color: #424242;
+  padding: 2rem 0;
+  transition: width 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+  width: 100%;
+  z-index: 99;
+
+  .menuHead {
+    @include flex(c, m, row);
+    align-self: center;
+    background-color: #fafafa;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+  }
+
+  .menuList {
+    @include flex(c, m, col);
+    flex: 1;
+    margin: 0;
+    padding: 0;
+  }
+
+  .menuItem {
+    @include flex(l, m, row);
+    border-radius: 4px;
+    cursor: pointer;
+    list-style-type: none;
+    height: 48px;
+    max-width: $menu-collapse-width;
+    padding: 0.5rem 1rem;
+    transition: border-left 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+    width: 100%;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &.collapse {
+    width: $menu-collapse-width;
+    .menuItem {
+      border-radius: 0;
+    }
+  }
+
+  @each $color in $colors {
+    $i: index($colors, $color);
+    $len: length($colors);
+    .menuItem:nth-of-type(#{$len}n + #{($i + 0) % $len}) {
+      color: $color;
+      &:hover {
+        color: darken($color, 10%);
+      }
+      &.active {
+        border-left: 4px solid;
+      }
+    }
+  }
+}
