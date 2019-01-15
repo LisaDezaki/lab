@@ -1,0 +1,58 @@
+@import "src/css/utils";
+
+$btn-size: 48px;
+$color-exposed: $white;
+$color-hidden: $grey-400;
+
+.perspective {
+  perspective: 750px;
+
+  .button {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    height: $btn-size;
+    margin: 1rem;
+    outline: 0;
+    padding: 0;
+    position: relative;
+    width: auto;
+    transition: all 0.4s cubic-bezier(0, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    transform-origin: 0 30px -30px;
+    &:hover {
+      transform: rotateX(90deg);
+    }
+    .label,
+    .label-hover {
+      @include flex(c, m);
+      background-color: rgba(255, 255, 255, 0.25);
+      font-weight: 700;
+      height: 100%;
+      letter-spacing: 0.5px;
+      padding: 0 1rem;
+      text-transform: uppercase;
+      transition: all 0.4s cubic-bezier(0, 0, 0.2, 1);
+      transform-style: preserve-3d;
+      width: 100%;
+    }
+    .label {
+      background-color: $color-exposed;
+      color: $subtext-color;
+    }
+    &:hover .label {
+      background-color: $color-hidden;
+    }
+    .label-hover {
+      @include absolute(0, 0, 0, 0);
+      background-color: $color-hidden;
+      transform: rotateX(-90deg) translateY(100%);
+      transform-origin: center bottom;
+    }
+    &:hover .label-hover {
+      background-color: $color-exposed;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@import "src/css/utils";
+
+$subtext-color: rgba(0, 0, 0, 0.32);
+
+.icon {
+  background-color: $white;
+  border: none;
+  border-radius: 50%;
+  color: inherit;
+  cursor: pointer;
+  height: 60px;
+  margin: 0 2rem;
+  outline: 0;
+  padding: 0;
+  position: relative;
+  width: 60px;
+  i.iconStart,
+  i.iconHover {
+    @include absolute(0, 0, 0, 0);
+    @include flex(c, m);
+    background-color: $white;
+    border-radius: 50%;
+    font-size: 175%;
+    transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+  }
+  i.iconStart {
+    color: $subtext-color;
+  }
+  i.iconHover {
+    @include absolute(-6px, -6px, -6px, -6px);
+    border: 6px solid;
+    transform: scale(0);
+  }
+  &:hover {
+    i.iconStart {
+      @include absolute(-8px, -8px, -8px, -8px);
+    }
+    i.iconHover {
+      transform: scale(1);
+    }
+  }
+}

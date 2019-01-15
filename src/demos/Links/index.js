@@ -1,7 +1,7 @@
 import React from "react";
 import { Article, Section } from "../../components";
-import Link1 from "./Link1.js";
-import Link2 from "./Link2.js";
+import Link1 from "./Link1/index.js";
+import Link2 from "./Link2/index.js";
 
 const Links = ({ active, className, style }) => (
   <Section id="Links" active={active}>

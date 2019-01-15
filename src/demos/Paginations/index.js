@@ -1,7 +1,7 @@
 import React from "react";
 import { Article, Section } from "../../components";
-import Pagination1 from "./Pagination1.js";
-import Pagination2 from "./Pagination2.js";
+import Pagination1 from "./Pagination1/index.js";
+import Pagination2 from "./Pagination2/index.js";
 
 const Paginations = ({ active, className, style }) => (
   <Section id="Paginations" active={active}>

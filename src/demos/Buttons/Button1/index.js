@@ -11,8 +11,11 @@ const Button1 = ({
   onClick,
   style
 }) => (
-  <div className={cx(css.button, className)} style={style} onClick={onClick}>
-    <button>{label}</button>
+  <div className={css.perspective}>
+    <button className={cx(css.button, className)} style={style}>
+      <span className={css.label}>{label}</span>
+      <span className={css["label-hover"]}>{label}</span>
+    </button>
   </div>
 );
 

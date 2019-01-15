@@ -1,0 +1,65 @@
+@import "src/css/utils";
+
+$fade-color: rgba(0, 0, 0, 0.23);
+$input-size: 48px;
+$label-size: 24px;
+
+.field {
+  @include flex(l, b, colr);
+  margin: 0 auto 1rem;
+  min-height: calc(#{$label-size} + #{$input-size});
+  max-height: calc(#{$label-size} + #{$input-size});
+  position: relative;
+  width: 100%;
+  .input {
+    background-color: transparent;
+    border: solid $subtext-color;
+    border-width: 0 0 2px 0;
+    cursor: text;
+    font-size: 125%;
+    font-weight: 500;
+    padding: 0 0.75rem;
+    transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+    width: 100%;
+    &::placeholder {
+      color: $fade-color;
+    }
+  }
+  .label {
+    @include flex(l, m);
+    color: $fade-color;
+    cursor: text;
+    height: $input-size;
+    margin: 0;
+    transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+    width: 100%;
+  }
+  //  Has either value or focus
+  .input:focus,
+  .input:not(:placeholder-shown),
+  &.hasValue .input {
+    background-color: rgba(255, 255, 255, 0.35);
+    height: $input-size;
+    max-height: $input-size;
+    outline: none;
+    & + .label {
+      font-size: 85%;
+      font-weight: 600;
+      height: $label-size;
+      padding: 0;
+    }
+  }
+  //  Has neither value nor focus
+  &:not(.hasValue) .input:not(:focus),
+  .input:placeholder-shown:not(:focus) {
+    border-top-color: transparent;
+    height: 0;
+    max-height: 0;
+    & + .label {
+      height: $input-size;
+      font-size: 125%;
+      font-weight: 500;
+      padding: 0 0.5rem;
+    }
+  }
+}

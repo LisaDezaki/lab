@@ -2,8 +2,7 @@
 
 .article {
   @include flex(c, m, col);
-  min-height: 60vh;
-  padding: 0 2rem;
+  padding: 4rem 2rem 5rem;
   width: 100%;
 
   .title {
@@ -11,9 +10,15 @@
     font-size: 3rem;
     font-weight: 300;
     letter-spacing: -2px;
+    margin: 0 0 2rem;
   }
 
   .content {
     @include flex(c, m, row);
+    width: 640px;
+  }
+
+  &.col .content {
+    flex-direction: column;
   }
 }

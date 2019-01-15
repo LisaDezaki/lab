@@ -1,0 +1,72 @@
+@import "src/css/utils";
+
+$btn-size: 48px;
+
+.button {
+  @include flex(c, m);
+  background-color: inherit;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 1rem;
+  outline: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &::before {
+    @include absolute(0, 0, 0, 0);
+    @include flex(c, m);
+    background-color: rgba(0, 0, 0, 0.25);
+    color: $white;
+    content: attr(data-label);
+    transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+    white-space: nowrap;
+  }
+
+  .label {
+    @include flex(c, m);
+    background-color: $white;
+    color: inherit;
+    height: $btn-size;
+    padding: 0 1rem;
+    transform: translateX(0);
+    transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+    width: 100%;
+    z-index: 1;
+  }
+
+  &[data-dir="down"]::before {
+    transform: translateY(-#{$btn-size * 0.5});
+  }
+  &[data-dir="left"]::before {
+    transform: translateX(#{$btn-size});
+  }
+  &[data-dir="up"]::before {
+    transform: translateY(#{$btn-size * 0.5});
+  }
+  &[data-dir="right"]::before {
+    transform: translateX(-#{$btn-size});
+  }
+
+  &:hover::before {
+    transform: translateX(0);
+  }
+
+  &[data-dir="down"]:hover .label {
+    transform: translateY(#{$btn-size});
+  }
+  &[data-dir="left"]:hover .label {
+    transform: translateX(-100%);
+  }
+  &[data-dir="up"]:hover .label {
+    transform: translateY(-#{$btn-size});
+  }
+  &[data-dir="right"]:hover .label {
+    transform: translateX(100%);
+  }
+}

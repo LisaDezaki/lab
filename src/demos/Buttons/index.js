@@ -1,7 +1,7 @@
 import React from "react";
 import { Article, Section } from "../../components";
-import Button1 from "./Button1.js";
-import Button2 from "./Button2.js";
+import Button1 from "./Button1/index.js";
+import Button2 from "./Button2/index.js";
 
 const Buttons = ({ active, className, style }) => (
   <Section id="Buttons" active={active}>
@@ -12,10 +12,10 @@ const Buttons = ({ active, className, style }) => (
       <Button1 label="Fire" />
     </Article>
     <Article id="Button_2" title="Button 2">
-      <Button2 label="John" />
-      <Button2 label="Paul" />
-      <Button2 label="George" />
-      <Button2 label="Ringo" />
+      <Button2 label="John" direction="down" />
+      <Button2 label="Paul" direction="left" />
+      <Button2 label="George" direction="up" />
+      <Button2 label="Ringo" direction="right" />
     </Article>
   </Section>
 );

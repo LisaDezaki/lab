@@ -1,7 +1,7 @@
 import React from "react";
 import { Article, Section } from "../../components";
-import Tooltip1 from "./Tooltip1.js";
-import Tooltip2 from "./Tooltip2.js";
+import Tooltip1 from "./Tooltip1/index.js";
+import Tooltip2 from "./Tooltip2/index.js";
 
 const Tooltips = ({ active, className, style }) => (
   <Section id="Tooltips" active={active}>
