@@ -1,1 +1,62 @@
 @import "src/css/utils";
+
+.span {
+  border-bottom: 1px dotted;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  position: relative;
+  .tooltip {
+    @include absolute(0, auto, auto, 50%);
+    @include flex(c, m);
+    background-color: $grey-900;
+    color: $grey-400;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    min-width: 200px;
+    opacity: 0;
+    padding: 0.5rem 1rem;
+    pointer-events: none;
+    text-align: left;
+    transform: translateY(-100%);
+    transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+    width: auto;
+    word-wrap: break-word;
+    z-index: 99;
+    &::after {
+      @include absolute(auto, auto, -12px, 0);
+      border: 6px solid;
+      border-color: $grey-900 transparent transparent $grey-900;
+      box-sizing: border-box;
+      color: red;
+      content: "";
+      display: block;
+      height: 12px;
+      width: 12px;
+    }
+    span {
+      color: $grey-400;
+      border: none;
+      font-size: 75%;
+      font-weight: 400;
+      line-height: 1.2;
+      margin: 0.5rem 0;
+    }
+  }
+  &.align-right .tooltip {
+    @include absolute(0, 50%, auto, auto);
+    &::after {
+      @include absolute(auto, 0, -12px, auto);
+      border-color: $grey-900 $grey-900 transparent transparent;
+    }
+  }
+  &:active,
+  &:focus,
+  &:hover {
+    .tooltip {
+      transform: translateY(calc(-100% - 12px));
+      opacity: 1;
+    }
+  }
+}

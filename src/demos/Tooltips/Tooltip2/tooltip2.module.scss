@@ -1,1 +1,53 @@
 @import "src/css/utils";
+
+$translateDistance: 1rem;
+
+.span {
+  border-bottom: 1px dotted;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  position: relative;
+  .tooltip {
+    @include absolute(-1rem, auto, auto, -1rem);
+    background-color: $grey-900;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    opacity: 0;
+    padding: 1rem;
+    pointer-events: none;
+    transform: translateY(#{$translateDistance});
+    transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+    word-wrap: break-word;
+    z-index: 99;
+    &::before {
+      border-bottom: 1px dotted;
+      color: $white;
+      content: attr(data-text);
+      display: block;
+      font-size: inherit;
+      line-height: inherit;
+      transform: translateY(-#{$translateDistance});
+      transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+    }
+    span {
+      border: none;
+      color: $grey-400;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.4;
+      margin-top: 0.5rem;
+    }
+  }
+  &:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    &::before {
+      transform: translateY(0);
+    }
+  }
+}
