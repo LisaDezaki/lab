@@ -30,7 +30,7 @@ class Alert1 extends Component {
       setTimeout(() => {
         this.setState({ expanding: null });
       }, 3000);
-      //  Dismiss alert automatically after 20s
+      //  Dismiss alert automatically after designated time
       if (autoDismiss) {
         setTimeout(() => {
           this.dismissAlert(name);

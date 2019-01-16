@@ -9,7 +9,7 @@ const Alerts = ({ active, className, style }) => (
       <Alert1 buttonLabel="Click me" autoDismiss={20000} />
     </Article>
     <Article id="Alert_2" title="Footer Alert">
-      <Alert2 buttonLabel="Click me" />
+      <Alert2 buttonLabel="Click me" autoDismiss={20000} />
     </Article>
   </Section>
 );

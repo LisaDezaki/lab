@@ -2,6 +2,25 @@
 
 $alert-height: 48px;
 
+@keyframes alertAnim {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes alertDismiss {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
 .alertDemo {
   .alertButton {
     background-color: transparent;
@@ -19,36 +38,29 @@ $alert-height: 48px;
   }
 
   .alertOverlay {
-    @include fixed(auto, 0, 0, auto);
-    @include flex(r, t, colr);
-    min-height: 100vh;
-    padding-bottom: calc(100vh - 0px);
+    @include fixed(auto, 0, 0, 0);
+    @include flex(stretch, b, col);
     pointer-events: none;
-    transition: padding-bottom 0.25s cubic-bezier(0, 0, 0.2, 1);
+    z-index: 999;
 
     .alert {
-      @include flex(l, m);
-      background-color: $white;
+      @include absolute(auto, 0, 0, 0);
+      @include flex(l, t);
+      animation: alertAnim 0.25s cubic-bezier(0, 0, 0.2, 1);
+      background-color: $grey-900;
       border: none;
       border-radius: 0;
+      color: $white;
       cursor: pointer;
       margin: 0;
-      max-height: $alert-height;
       overflow: hidden;
       padding: 0;
       pointer-events: auto;
-      transform: translateX(calc(100% - 48px));
-      transition: transform 0.25s cubic-bezier(0, 0, 0.2, 1),
-        max-height 0.25s cubic-bezier(0, 0, 0.2, 1) 0.25s;
-
-      &:hover,
-      &.expand {
-        transform: translateX(0);
-      }
+      transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
 
       &.dismiss {
-        max-height: 0;
-        transform: translateX(100%);
+        animation: alertDismiss 0.1s cubic-bezier(0, 0, 0.2, 1) forwards;
+        pointer-events: none;
       }
 
       .alertIcon {
@@ -60,7 +72,6 @@ $alert-height: 48px;
 
       .alertMessage {
         @include flex(c, m, row, inline);
-        color: $subtext-color;
         font-weight: 500;
         min-height: 48px;
         padding-right: 1rem;

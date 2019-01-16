@@ -8,8 +8,7 @@ class Alert2 extends Component {
     this.state = {
       alerts: [],
       counter: 0,
-      dismissing: null,
-      expanding: null
+      dismissing: null
     };
   }
 
@@ -22,15 +21,7 @@ class Alert2 extends Component {
         alerts: [...state.alerts, { name, icon, message }],
         counter: state.counter + 1
       }));
-      //  Expand alert on first appearance (allowing time to animate in)
-      setTimeout(() => {
-        this.setState({ expanding: name });
-      }, 250);
-      //  Collapse alert after 3s
-      setTimeout(() => {
-        this.setState({ expanding: null });
-      }, 3000);
-      //  Dismiss alert automatically after 20s
+      //  Dismiss alert automatically after designated time
       if (autoDismiss) {
         setTimeout(() => {
           this.dismissAlert(name);
@@ -48,14 +39,13 @@ class Alert2 extends Component {
         this.setState(state => ({
           alerts: state.alerts.filter(alert => alert.name !== name)
         }));
-      }, 500);
+      }, 100);
     };
   };
 
   render() {
     const { buttonLabel } = this.props;
-    const { alerts, counter, dismissing, expanding } = this.state;
-    const paddingBottom = `calc(100vh - ${alerts.length * 48}px)`;
+    const { alerts, counter, dismissing } = this.state;
 
     return (
       <div className={css.alertDemo}>
@@ -69,16 +59,19 @@ class Alert2 extends Component {
         >
           {buttonLabel}
         </button>
-        <div className={css.alertOverlay} style={{ paddingBottom }}>
+        <div className={css.alertOverlay}>
           {alerts.map((alert, i) => (
             <div
               key={alert.name}
               className={cx(
                 css.alert,
-                dismissing === alert.name ? css.dismiss : null,
-                expanding === alert.name ? css.expand : null
+                dismissing === alert.name ? css.dismiss : null
               )}
               onClick={this.dismissAlert(alert.name)}
+              style={{
+                bottom: `${(alerts.length - 1) * 48 - i * 48}px`,
+                transitionDelay: `${(alerts.length - 1 - i) * 0.025}s`
+              }}
             >
               <i class={cx(css.alertIcon, `zmdi zmdi-${alert.icon}`)} />
               <span className={css.alertMessage}>{alert.message}</span>
