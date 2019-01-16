@@ -27,36 +27,45 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      section: null
+      demo: null
     };
   }
 
   getDemo = demoName => {
     switch (demoName) {
       case "Alerts":
-        return <Alerts active={this.state.section === "Alerts"} />;
+        return <Alerts key="alerts" active={this.state.demo === "Alerts"} />;
       case "Buttons":
-        return <Buttons active={this.state.section === "Buttons"} />;
+        return <Buttons key="buttons" active={this.state.demo === "Buttons"} />;
       case "Icons":
-        return <Icons active={this.state.section === "Icons"} />;
+        return <Icons key="icons" active={this.state.demo === "Icons"} />;
       case "Inputs":
-        return <Inputs active={this.state.section === "Inputs"} />;
+        return <Inputs key="inputs" active={this.state.demo === "Inputs"} />;
       case "Links":
-        return <Links active={this.state.section === "Links"} />;
+        return <Links key="links" active={this.state.demo === "Links"} />;
       case "Paginations":
-        return <Paginations active={this.state.section === "Paginations"} />;
+        return (
+          <Paginations
+            key="paginations"
+            active={this.state.demo === "Paginations"}
+          />
+        );
       case "Spinners":
-        return <Spinners active={this.state.section === "Spinners"} />;
+        return (
+          <Spinners key="spinners" active={this.state.demo === "Spinners"} />
+        );
       case "Tooltips":
-        return <Tooltips active={this.state.section === "Tooltips"} />;
+        return (
+          <Tooltips key="tooltips" active={this.state.demo === "Tooltips"} />
+        );
       default:
         return <div />;
     }
   };
 
-  selectSection = section => {
+  selectSection = demo => {
     return () => {
-      this.setState({ section });
+      this.setState({ demo });
     };
   };
 
@@ -64,12 +73,12 @@ class App extends Component {
     return (
       <div className="App">
         <Menu
-          collapse={this.state.section}
+          collapse={this.state.demo}
           data={sections}
           renderItem={item => (
             <MenuItem
               key={item}
-              active={this.state.section === item}
+              active={this.state.demo === item}
               onClick={this.selectSection(item)}
             >
               {item}

@@ -5,13 +5,13 @@ import css from "./tooltip2.module.scss";
 const Tooltip2 = ({ children, className, style, tip }) => (
   <span className={css.span}>
     {children}
-    <div
+    <span
       className={cx(css.tooltip, className)}
       data-text={children}
       style={style}
     >
       <span>{tip}</span>
-    </div>
+    </span>
   </span>
 );
 

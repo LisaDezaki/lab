@@ -1,1 +1,63 @@
 @import "src/css/utils";
+
+$btn-size: 56px;
+
+.pagination {
+  @include flex(c, m);
+  padding: 0;
+  position: relative;
+
+  .pages {
+    position: relative;
+
+    .pageList,
+    .indicatorList {
+      @include flex(c, m, row);
+      margin: 0;
+      padding: 0;
+    }
+    .pageList {
+      flex-direction: row;
+    }
+    .indicatorList {
+      @include absolute(0, auto, auto, 0);
+      background-color: $white;
+      transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+      width: $btn-size;
+
+      .page {
+        color: inherit;
+      }
+    }
+
+    .indicator {
+      @include absolute(0, auto, auto, 0);
+      border-radius: $btn-size * 0.5;
+      font-size: 150%;
+      height: $btn-size;
+      overflow: hidden;
+      pointer-events: none;
+      transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+      width: $btn-size;
+    }
+  }
+
+  .prev,
+  .page,
+  .next {
+    @include flex(c, m);
+    border-radius: $btn-size * 0.5;
+    color: $white;
+    cursor: pointer;
+    font-size: 150%;
+    font-weight: 500;
+    height: $btn-size;
+    margin: 0;
+    position: relative;
+    width: $btn-size;
+    transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}
