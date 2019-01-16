@@ -5,6 +5,7 @@ import css from "./link1.module.scss";
 const Link1 = ({ children, className, to, id, onClick, style, type }) => (
   <a
     className={cx(css.link, className)}
+    data-text={children}
     href={to || "#"}
     onClick={onClick}
     style={style}

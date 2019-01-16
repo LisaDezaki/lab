@@ -15,7 +15,7 @@
     $len: length($colors);
     &:nth-of-type(#{$len}n + #{($i + 0) % $len}) {
       background-color: darken($color, 10%);
-      color: darken($color, 20%);
+      color: darken($color, 10%);
     }
   }
 }

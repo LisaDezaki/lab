@@ -1,1 +1,80 @@
 @import "src/css/utils";
+
+.spinner {
+  animation: spin 2s linear infinite;
+  border: 4px solid $white;
+  border-radius: 50%;
+  height: 80px;
+  margin: 2rem;
+  position: relative;
+  width: 80px;
+
+  .spinner_n {
+    @include absolute(0, 0, 0, 0);
+    @include flex(c, t);
+    &::before {
+      content: "";
+    }
+  }
+
+  &.reverse {
+    animation-direction: reverse;
+  }
+
+  //  Style the decoration based on the requested type
+  &.type--bar .spinner_n::before {
+    background-color: $white;
+    height: 16px;
+    margin-top: -10px;
+    width: 4px;
+  }
+  &.type--circle .spinner_n::before {
+    background-color: $white;
+    border: 4px solid;
+    border-radius: 50%;
+    height: 16px;
+    margin-top: -14px;
+    width: 16px;
+  }
+  &.type--cut .spinner_n::before {
+    border-top: 4px solid;
+    height: 4px;
+    margin-top: -4px;
+    width: 8px;
+  }
+  &.type--diamond .spinner_n::before {
+    background-color: $white;
+    height: 12px;
+    margin-top: -7px;
+    transform: rotate(45deg);
+    width: 12px;
+  }
+  &.type--synapse .spinner_n::before {
+    border-left: 4px solid $white;
+    border-right: 4px solid;
+    box-sizing: border-box;
+    height: 16px;
+    margin-top: -10px;
+    width: 8px;
+  }
+  &.reverse {
+    &.type--synapse .spinner_n::before {
+      border-left: 4px solid;
+      border-right: 4px solid $white;
+      height: 16px;
+      margin-top: -10px;
+      width: 8px;
+    }
+  }
+
+  //  Handle the rotation of each .spinner_n element
+  @for $n from 1 through 12 {
+    &[data-n="#{$n}"] .spinner_n {
+      @for $i from 1 through $n {
+        &:nth-of-type(#{$i}) {
+          transform: rotate(#{360 / $n * $i}deg);
+        }
+      }
+    }
+  }
+}

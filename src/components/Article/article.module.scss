@@ -15,7 +15,7 @@
 
   .content {
     @include flex(c, m, row);
-    width: 640px;
+    max-width: 640px;
   }
 
   &.col .content {
