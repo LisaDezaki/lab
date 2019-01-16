@@ -6,10 +6,10 @@ import Alert2 from "./Alert2/index.js";
 const Alerts = ({ active, className, style }) => (
   <Section id="Alerts" active={active}>
     <Article id="Alert_1" title="Corner Alert">
-      <Alert1 label="Click me" />
+      <Alert1 buttonLabel="Click me" autoDismiss={20000} />
     </Article>
     <Article id="Alert_2" title="Footer Alert">
-      <Alert2 label="Click me" />
+      <Alert2 buttonLabel="Click me" />
     </Article>
   </Section>
 );

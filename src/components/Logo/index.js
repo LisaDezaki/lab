@@ -6,8 +6,9 @@ import logo_r from "./img/logo_r.png";
 import css from "./logo.module.scss";
 
 const Logo = ({ className, size, to }) => (
-  <div
+  <a
     className={cx(css.logo, className)}
+    href="http://ellieashton.me"
     style={{ height: size, width: size }}
     title="Return to EllieAshton.me"
   >
@@ -29,7 +30,7 @@ const Logo = ({ className, size, to }) => (
       src={logo_r}
       style={{ height: size, width: size }}
     />
-  </div>
+  </a>
 );
 
 export default Logo;

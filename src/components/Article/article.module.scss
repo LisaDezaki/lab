@@ -6,6 +6,7 @@
   width: 100%;
 
   .title {
+    animation: fadeInLeft 0.25s cubic-bezier(0, 0, 0.2, 1);
     color: rgba(0, 0, 0, 0.25);
     font-size: 3rem;
     font-weight: 300;
@@ -16,6 +17,7 @@
   .content {
     @include flex(c, m, row);
     max-width: 640px;
+    width: 100%;
   }
 
   &.col .content {
