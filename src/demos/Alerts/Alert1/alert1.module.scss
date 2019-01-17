@@ -26,13 +26,14 @@ $alert-height: 48px;
     @include fixed(auto, 0, 0, auto);
     @include flex(r, t, colr);
     min-height: 100vh;
+    overflow: hidden;
     padding-bottom: calc(100vh - 0px);
     pointer-events: none;
     transition: padding-bottom 0.25s cubic-bezier(0, 0, 0.2, 1);
 
     .alert {
       @include flex(l, m);
-      @include shadow(3);
+      @include shadow(2);
       background-color: $white;
       border: none;
       border-radius: 0;

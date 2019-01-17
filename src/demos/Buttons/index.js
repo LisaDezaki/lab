@@ -10,13 +10,13 @@ const Buttons = ({ active, className, menuActive, onClick, style }) => (
     menuActive={menuActive}
     onClick={onClick}
   >
-    <Article id="Button_1" title="Button 1">
+    <Article id="Button_1" title="Block Button">
       <Button1 label="Earth" />
       <Button1 label="Wind" />
       <Button1 label="Water" />
       <Button1 label="Fire" />
     </Article>
-    <Article id="Button_2" title="Button 2">
+    <Article id="Button_2" title="Slider Button">
       <Button2 label="John" direction="down" />
       <Button2 label="Paul" direction="left" />
       <Button2 label="George" direction="up" />

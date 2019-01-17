@@ -1,14 +1,19 @@
 @import "src/css/utils";
 
 .menu {
-  @include fixed(0, auto, 0, 0);
   @include flex(c, space, col);
   background-color: #424242;
   padding: 2rem 0;
-  transform: translateX(-100%);
   transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
   width: 100%;
+  width: $menu-width;
   z-index: 99;
+  &.fullScreen {
+    width: 100vw;
+    .menuItem {
+      border-radius: 4px;
+    }
+  }
 
   .menuHead {
     @include flex(c, m, row);
@@ -22,6 +27,7 @@
   .menuList {
     @include flex(c, m, col);
     margin: 0;
+    max-width: $menu-width;
     padding: 0;
     width: 100%;
   }
@@ -51,44 +57,6 @@
         }
         &.active {
           border-left: 4px solid;
-        }
-      }
-    }
-  }
-
-  &.collapse {
-    width: $menu-collapse-width;
-    .menuItem {
-      border-radius: 0;
-    }
-  }
-
-  &.active {
-    transform: translateX(0);
-  }
-  &.demoSelected {
-    width: $menu-collapse-width;
-  }
-
-  @include bp-min($screen-lg) {
-    .menuList {
-      max-width: 320px;
-      width: calc(100% - 4rem);
-      .menuItem {
-        border-radius: 4px;
-      }
-    }
-
-    &.active {
-      width: 100%;
-    }
-    &:not(.active) {
-      transform: translateX(0);
-      width: $menu-collapse-width;
-
-      .menuList {
-        .menuItem {
-          border-radius: 0;
         }
       }
     }

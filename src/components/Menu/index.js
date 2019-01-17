@@ -3,24 +3,9 @@ import cx from "classnames";
 import { Logo } from "..";
 import css from "./menu.module.scss";
 
-const Menu = ({
-  active,
-  className,
-  // collapse,
-  data,
-  demo,
-  noneSelected,
-  renderItem,
-  style
-}) => (
+const Menu = ({ active, className, data, demo, renderItem, style }) => (
   <div
-    className={cx(
-      css.menu,
-      active ? css.active : null,
-      demo ? css.demoSelected : null,
-      noneSelected ? css.noneSelected : null,
-      className
-    )}
+    className={cx(css.menu, demo === null ? css.fullScreen : null, className)}
   >
     <div className={css.menuHead}>
       <Logo size={54} />

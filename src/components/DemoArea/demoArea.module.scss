@@ -1,0 +1,41 @@
+@import "src/css/utils";
+
+.demoArea {
+  overflow: hidden;
+  padding: 3rem 0;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+  width: 100vw;
+  &.hide {
+    display: none;
+  }
+
+  .menuButton {
+    @include absolute(0, auto, auto, 0);
+    @include flex(c, m, row);
+    border-radius: 24px;
+    color: $white;
+    cursor: pointer;
+    font-size: 32px;
+    height: 48px;
+    margin: 0.5rem;
+    transform: rotate(-180deg);
+    transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+    width: 48px;
+    z-index: 50;
+    &:active,
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    &.menuActive {
+      transform: rotate(0);
+    }
+  }
+
+  @include bp-min($screen-lg) {
+    width: calc(100vw - #{$menu-width});
+    .menuButton {
+      display: none;
+    }
+  }
+}
