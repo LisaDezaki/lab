@@ -20,9 +20,11 @@
   &:hover .logo__img {
     &:nth-child(2) {
       animation: glitchContinuous 3s infinite linear;
+      transform: translateX(5px);
     }
     &:nth-child(3) {
       animation: glitchContinuous 4s infinite linear reverse;
+      transform: translateX(-5px);
     }
   }
 }

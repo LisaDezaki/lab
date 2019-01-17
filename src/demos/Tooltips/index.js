@@ -3,13 +3,8 @@ import { Article, Section } from "../../components";
 import Tooltip1 from "./Tooltip1/index.js";
 import Tooltip2 from "./Tooltip2/index.js";
 
-const Tooltips = ({ active, className, menuActive, onClick, style }) => (
-  <Section
-    id="Tooltips"
-    active={active}
-    menuActive={menuActive}
-    onClick={onClick}
-  >
+const Tooltips = ({ active, className, style }) => (
+  <Section id="Tooltips" active={active}>
     <Article id="Tooltip_1" title="Tooltip 1">
       <p>
         Volutpat consectetur{" "}

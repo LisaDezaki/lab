@@ -7,14 +7,13 @@
   font-weight: 500;
   position: relative;
   .tooltip {
-    @include absolute(0, auto, auto, 50%);
+    @include absolute(5px, -1rem, auto, -1rem);
     @include flex(c, m);
     background-color: $grey-900;
     color: $grey-400;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
-    min-width: 200px;
     opacity: 0;
     padding: 0.5rem 1rem;
     pointer-events: none;
@@ -25,15 +24,18 @@
     word-wrap: break-word;
     z-index: 99;
     &::after {
-      @include absolute(auto, auto, -12px, 0);
-      border: 6px solid;
-      border-color: $grey-900 transparent transparent $grey-900;
+      $size: 16;
+      $offsetY: hypoteneuse($size/2, $size/2);
+      @include absolute(auto, auto, calc(-#{$offsetY + $size}px), 50%);
+      border: #{$size * 0.5}px solid;
+      border-color: $grey-900;
       box-sizing: border-box;
-      color: red;
       content: "";
       display: block;
-      height: 12px;
-      width: 12px;
+      height: #{$size}px;
+      transform: rotate(-135deg);
+      transform-origin: top left;
+      width: #{$size}px;
     }
     span {
       color: $grey-400;

@@ -21,7 +21,7 @@ class Inputs extends Component {
   };
 
   render() {
-    const { active, menuActive, onClick } = this.props;
+    const { active } = this.props;
     const {
       username1,
       email1,
@@ -32,12 +32,7 @@ class Inputs extends Component {
     } = this.state;
 
     return (
-      <Section
-        id="Inputs"
-        active={active}
-        menuActive={menuActive}
-        onClick={onClick}
-      >
+      <Section id="Inputs" active={active}>
         <Article id="Input_1" title="Input 1" direction="col">
           <Input1
             label="Username"
