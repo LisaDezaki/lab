@@ -6,13 +6,18 @@ const Button1 = ({
   active,
   children,
   className,
+  direction,
   id,
   label,
   onClick,
   style
 }) => (
   <div className={css.perspective}>
-    <button className={cx(css.button, className)} style={style}>
+    <button
+      className={cx(css.button, className)}
+      data-dir={direction}
+      style={style}
+    >
       <span className={css.label}>{label}</span>
       <span className={css["label-hover"]}>{label}</span>
     </button>

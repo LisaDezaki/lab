@@ -58,6 +58,7 @@ class App extends Component {
         <DemoArea
           activeDemo={demo}
           isMenuActive={menuActive}
+          onClick={this.closeMenu}
           onMenuClick={this.toggleMenu}
         />
       </div>

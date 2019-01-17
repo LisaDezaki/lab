@@ -1,11 +1,12 @@
 @import "src/css/utils";
 
-$btn-size: 48px;
-$color-exposed: $white;
-$color-hidden: $grey-400;
+$btnHeight: 48px;
+$btnWidth: 100px;
+$colorExposed: $white;
+$colorHidden: $grey-400;
 
 .perspective {
-  perspective: 750px;
+  perspective: 2000px;
 
   .button {
     background-color: transparent;
@@ -13,21 +14,17 @@ $color-hidden: $grey-400;
     color: inherit;
     cursor: pointer;
     display: inline-block;
-    height: $btn-size;
-    margin: 0.5rem;
+    height: $btnHeight;
+    margin: 1rem;
     outline: 0;
     padding: 0;
     position: relative;
     width: auto;
     transition: all 0.4s cubic-bezier(0, 0, 0.2, 1);
     transform-style: preserve-3d;
-    transform-origin: 0 30px -30px;
-    width: 100px;
+    width: $btnWidth;
     &:focus {
       outline: none;
-    }
-    &:hover {
-      transform: rotateX(90deg);
     }
     .label,
     .label-hover {
@@ -39,24 +36,67 @@ $color-hidden: $grey-400;
       padding: 0 1rem;
       text-transform: uppercase;
       transition: all 0.4s cubic-bezier(0, 0, 0.2, 1);
-      transform-style: preserve-3d;
       width: 100%;
     }
     .label {
-      background-color: $color-exposed;
+      background-color: $colorExposed;
       color: $subtext-color;
-    }
-    &:hover .label {
-      background-color: $color-hidden;
     }
     .label-hover {
       @include absolute(0, 0, 0, 0);
-      background-color: $color-hidden;
-      transform: rotateX(-90deg) translateY(100%);
-      transform-origin: center bottom;
+      background-color: $colorHidden;
     }
-    &:hover .label-hover {
-      background-color: $color-exposed;
+    &:hover {
+      .label {
+        background-color: $colorHidden;
+      }
+      .label-hover {
+        background-color: $colorExposed;
+      }
+    }
+
+    &[data-dir="up"] {
+      transform-origin: #{$btnWidth/2} #{$btnHeight/2} -#{$btnHeight/2};
+      &:hover {
+        transform: rotateX(90deg);
+      }
+      .label-hover {
+        transform: rotateX(-90deg) translateY(100%);
+        transform-origin: center bottom;
+      }
+    }
+
+    &[data-dir="right"] {
+      transform-origin: #{$btnWidth/2} #{$btnHeight/2} -#{$btnWidth/2};
+      &:hover {
+        transform: rotateY(90deg);
+      }
+      .label-hover {
+        transform: rotateY(-90deg) translateX(-100%);
+        transform-origin: center left;
+      }
+    }
+
+    &[data-dir="down"] {
+      transform-origin: #{$btnWidth/2} #{$btnHeight/2} -#{$btnHeight/2};
+      &:hover {
+        transform: rotateX(-90deg);
+      }
+      .label-hover {
+        transform: rotateX(90deg) translateY(-100%);
+        transform-origin: center top;
+      }
+    }
+
+    &[data-dir="left"] {
+      transform-origin: #{$btnWidth/2} #{$btnHeight/2} -#{$btnWidth/2};
+      &:hover {
+        transform: rotateY(-90deg);
+      }
+      .label-hover {
+        transform: rotateY(90deg) translateX(100%);
+        transform-origin: center right;
+      }
     }
   }
 }

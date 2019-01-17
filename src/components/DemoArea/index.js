@@ -16,6 +16,7 @@ const DemoArea = ({
   activeDemo,
   className,
   isMenuActive,
+  onClick,
   onMenuClick,
   style
 }) => (
@@ -35,14 +36,16 @@ const DemoArea = ({
       )}
       onClick={onMenuClick}
     />
-    <Alerts active={activeDemo === "Alerts"} />
-    <Buttons active={activeDemo === "Buttons"} />
-    <Icons active={activeDemo === "Icons"} />
-    <Inputs active={activeDemo === "Inputs"} />
-    <Links active={activeDemo === "Links"} />
-    <Paginations active={activeDemo === "Paginations"} />
-    <Spinners active={activeDemo === "Spinners"} />
-    <Tooltips active={activeDemo === "Tooltips"} />
+    <div className={css.activeDemo} onClick={onClick}>
+      <Alerts active={activeDemo === "Alerts"} />
+      <Buttons active={activeDemo === "Buttons"} />
+      <Icons active={activeDemo === "Icons"} />
+      <Inputs active={activeDemo === "Inputs"} />
+      <Links active={activeDemo === "Links"} />
+      <Paginations active={activeDemo === "Paginations"} />
+      <Spinners active={activeDemo === "Spinners"} />
+      <Tooltips active={activeDemo === "Tooltips"} />
+    </div>
   </div>
 );
 
