@@ -2,6 +2,7 @@
 
 $fade-color: rgba(0, 0, 0, 0.23);
 $input-size: 56px;
+$label-shrink-size: 110px;
 
 .field {
   @include flex(l, m, rowr);
@@ -41,11 +42,11 @@ $input-size: 56px;
   &.hasValue .input {
     outline: 0;
     padding: 0 1rem;
-    width: calc(100% - 120px);
-    max-width: calc(100% - 120px);
-    min-width: calc(100% - 120px);
+    width: calc(100% - #{$label-shrink-size});
+    max-width: calc(100% - #{$label-shrink-size});
+    min-width: calc(100% - #{$label-shrink-size});
     & + .label {
-      min-width: 120px;
+      min-width: $label-shrink-size;
       padding-left: 1rem;
     }
   }

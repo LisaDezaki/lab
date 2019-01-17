@@ -39,8 +39,6 @@ class Pagination2 extends Component {
       "-" + (100 / this.props.pages) * (this.state.activePage - 1) + "%";
     let indicatorListWidth = this.props.pages * 100 + "%";
 
-    console.log(indicatorListWidth);
-
     return (
       <div
         className={cx(css.pagination, this.props.className)}

@@ -3,8 +3,13 @@ import { Article, Section } from "../../components";
 import Spinner1 from "./Spinner1/index.js";
 import Spinner2 from "./Spinner2/index.js";
 
-const Spinners = ({ active, className, style }) => (
-  <Section id="Spinners" active={active}>
+const Spinners = ({ active, className, menuActive, onClick, style }) => (
+  <Section
+    id="Spinners"
+    active={active}
+    menuActive={menuActive}
+    onClick={onClick}
+  >
     <Article id="Spinner_1" title="Spinner 1">
       <Spinner1 number={1} type="circle" />
       <Spinner1 number={2} type="cut" reverse />

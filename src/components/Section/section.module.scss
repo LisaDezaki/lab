@@ -1,13 +1,18 @@
 @import "src/css/utils";
 
 .section {
-  @include absolute(0, 0, 0, $menu-collapse-width);
+  @include absolute(0, 0, 0);
   display: none;
   overflow-y: auto;
   padding: 3rem 0;
+  transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
 
   &.active {
     display: block;
+  }
+
+  &.menuActive {
+    transform: translateX($menu-collapse-width);
   }
 
   @each $color in $colors {
@@ -17,5 +22,9 @@
       background-color: darken($color, 10%);
       color: darken($color, 10%);
     }
+  }
+
+  @include bp-min($screen-lg) {
+    left: $menu-collapse-width;
   }
 }

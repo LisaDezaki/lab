@@ -2,10 +2,11 @@
 
 .menu {
   @include fixed(0, auto, 0, 0);
-  @include flex(stretch, m, col);
+  @include flex(c, space, col);
   background-color: #424242;
   padding: 2rem 0;
-  transition: width 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: translateX(-100%);
+  transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
   width: 100%;
   z-index: 99;
 
@@ -20,23 +21,38 @@
 
   .menuList {
     @include flex(c, m, col);
-    flex: 1;
     margin: 0;
     padding: 0;
+    width: 100%;
   }
 
   .menuItem {
     @include flex(l, m, row);
-    border-radius: 4px;
     cursor: pointer;
+    font-size: 24px;
     list-style-type: none;
-    height: 48px;
-    max-width: $menu-collapse-width;
-    padding: 0.5rem 1rem;
+    height: 52px;
+    margin: 0.25rem 0;
+    min-width: $menu-collapse-width;
+    padding: 0.5rem 2rem;
     transition: border-left 0.25s cubic-bezier(0.23, 1, 0.32, 1);
     width: 100%;
     &:hover {
       background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    @each $color in $colors {
+      $i: index($colors, $color);
+      $len: length($colors);
+      &:nth-of-type(#{$len}n + #{($i + 0) % $len}) {
+        color: $color;
+        &:hover {
+          color: darken($color, 10%);
+        }
+        &.active {
+          border-left: 4px solid;
+        }
+      }
     }
   }
 
@@ -47,16 +63,33 @@
     }
   }
 
-  @each $color in $colors {
-    $i: index($colors, $color);
-    $len: length($colors);
-    .menuItem:nth-of-type(#{$len}n + #{($i + 0) % $len}) {
-      color: $color;
-      &:hover {
-        color: darken($color, 10%);
+  &.active {
+    transform: translateX(0);
+  }
+  &.demoSelected {
+    width: $menu-collapse-width;
+  }
+
+  @include bp-min($screen-lg) {
+    .menuList {
+      max-width: 320px;
+      width: calc(100% - 4rem);
+      .menuItem {
+        border-radius: 4px;
       }
-      &.active {
-        border-left: 4px solid;
+    }
+
+    &.active {
+      width: 100%;
+    }
+    &:not(.active) {
+      transform: translateX(0);
+      width: $menu-collapse-width;
+
+      .menuList {
+        .menuItem {
+          border-radius: 0;
+        }
       }
     }
   }

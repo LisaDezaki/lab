@@ -27,64 +27,126 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      demo: null
+      demo: null,
+      menuActive: true
     };
   }
 
   getDemo = demoName => {
+    const { demo, menuActive } = this.state;
+
     switch (demoName) {
       case "Alerts":
-        return <Alerts key="alerts" active={this.state.demo === "Alerts"} />;
+        return (
+          <Alerts
+            key="alerts"
+            active={demo === "Alerts"}
+            menuActive={menuActive}
+            onClick={this.closeMenu}
+          />
+        );
       case "Buttons":
-        return <Buttons key="buttons" active={this.state.demo === "Buttons"} />;
+        return (
+          <Buttons
+            key="buttons"
+            active={demo === "Buttons"}
+            menuActive={menuActive}
+            onClick={this.closeMenu}
+          />
+        );
       case "Icons":
-        return <Icons key="icons" active={this.state.demo === "Icons"} />;
+        return (
+          <Icons
+            key="icons"
+            active={demo === "Icons"}
+            menuActive={menuActive}
+            onClick={this.closeMenu}
+          />
+        );
       case "Inputs":
-        return <Inputs key="inputs" active={this.state.demo === "Inputs"} />;
+        return (
+          <Inputs
+            key="inputs"
+            active={demo === "Inputs"}
+            menuActive={menuActive}
+            onClick={this.closeMenu}
+          />
+        );
       case "Links":
-        return <Links key="links" active={this.state.demo === "Links"} />;
+        return (
+          <Links
+            key="links"
+            active={demo === "Links"}
+            menuActive={menuActive}
+            onClick={this.closeMenu}
+          />
+        );
       case "Paginations":
         return (
           <Paginations
             key="paginations"
-            active={this.state.demo === "Paginations"}
+            active={demo === "Paginations"}
+            menuActive={menuActive}
+            onClick={this.closeMenu}
           />
         );
       case "Spinners":
         return (
-          <Spinners key="spinners" active={this.state.demo === "Spinners"} />
+          <Spinners
+            key="spinners"
+            active={demo === "Spinners"}
+            menuActive={menuActive}
+            onClick={this.closeMenu}
+          />
         );
       case "Tooltips":
         return (
-          <Tooltips key="tooltips" active={this.state.demo === "Tooltips"} />
+          <Tooltips
+            key="tooltips"
+            active={demo === "Tooltips"}
+            menuActive={menuActive}
+            onClick={this.closeMenu}
+          />
         );
       default:
         return <div />;
     }
   };
 
+  closeMenu = () => {
+    this.setState({ menuActive: false });
+  };
+
   selectSection = demo => {
     return () => {
-      this.setState({ demo });
+      this.setState({ demo, menuActive: false });
     };
   };
 
+  toggleMenu = () => {
+    this.setState(state => ({ menuActive: !state.menuActive }));
+  };
+
   render() {
+    const { demo, menuActive } = this.state;
+
     return (
       <div className="App">
         <Menu
-          collapse={this.state.demo}
+          active={menuActive}
           data={sections}
+          demo={demo}
           renderItem={item => (
             <MenuItem
               key={item}
-              active={this.state.demo === item}
+              active={demo === item}
               onClick={this.selectSection(item)}
             >
               {item}
             </MenuItem>
           )}
         />
+        <i className="menuButton zmdi zmdi-menu" onClick={this.toggleMenu} />
         {sections.map(demo => this.getDemo(demo))}
       </div>
     );

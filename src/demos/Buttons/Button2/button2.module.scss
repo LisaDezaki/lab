@@ -10,20 +10,25 @@ $btn-size: 48px;
   cursor: pointer;
   font-weight: 700;
   letter-spacing: 1px;
-  margin: 0 1rem;
+  margin: 0.5rem;
   outline: 0;
   overflow: hidden;
   padding: 0;
   position: relative;
   text-decoration: none;
   text-transform: uppercase;
+  width: 100px;
+  &:focus {
+    outline: none;
+  }
 
   &::before {
     @include absolute(0, 0, 0, 0);
     @include flex(c, m);
     background-color: rgba(0, 0, 0, 0.25);
-    color: $white;
+    color: transparent;
     content: attr(data-label);
+    padding: 0 1rem;
     transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
     white-space: nowrap;
   }
@@ -54,6 +59,7 @@ $btn-size: 48px;
   }
 
   &:hover::before {
+    color: $white;
     transform: translateX(0);
   }
 

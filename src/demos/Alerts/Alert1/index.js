@@ -20,7 +20,8 @@ class Alert1 extends Component {
       //  Add new alert
       this.setState(state => ({
         alerts: [...state.alerts, { name, icon, message }],
-        counter: state.counter + 1
+        counter: state.counter + 1,
+        expanding: null
       }));
       //  Expand alert on first appearance (allowing time to animate in)
       setTimeout(() => {
@@ -33,7 +34,7 @@ class Alert1 extends Component {
       //  Dismiss alert automatically after designated time
       if (autoDismiss) {
         setTimeout(() => {
-          this.dismissAlert(name);
+          this.dismissAlert(name)();
         }, autoDismiss);
       }
     };
@@ -64,7 +65,7 @@ class Alert1 extends Component {
           onClick={this.addAlert(
             `alert-${counter}`,
             "alert-circle-o",
-            "This is an alert!"
+            "This is an alert! (Tap to dismiss)"
           )}
         >
           {buttonLabel}
@@ -79,8 +80,9 @@ class Alert1 extends Component {
                 expanding === alert.name ? css.expand : null
               )}
               onClick={this.dismissAlert(alert.name)}
+              style={{ zIndex: alerts.length - i }}
             >
-              <i class={cx(css.alertIcon, `zmdi zmdi-${alert.icon}`)} />
+              <i className={cx(css.alertIcon, `zmdi zmdi-${alert.icon}`)} />
               <span className={css.alertMessage}>{alert.message}</span>
             </div>
           ))}

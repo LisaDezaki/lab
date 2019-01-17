@@ -3,8 +3,8 @@ import { Article, Section } from "../../components";
 import Link1 from "./Link1/index.js";
 import Link2 from "./Link2/index.js";
 
-const Links = ({ active, className, style }) => (
-  <Section id="Links" active={active}>
+const Links = ({ active, className, menuActive, onClick, style }) => (
+  <Section id="Links" active={active} menuActive={menuActive} onClick={onClick}>
     <Article id="Link_1" title="Link 1">
       <p>
         Volutpat consectetur <Link1>suspendisse</Link1> cubilia imperdiet ac

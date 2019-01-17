@@ -3,8 +3,8 @@ import { Article, Section } from "../../components";
 import Icon1 from "./Icon1/index.js";
 import Icon2 from "./Icon2/index.js";
 
-const Icons = ({ active, className, style }) => (
-  <Section id="Icons" active={active}>
+const Icons = ({ active, className, menuActive, onClick, style }) => (
+  <Section id="Icons" active={active} menuActive={menuActive} onClick={onClick}>
     <Article id="Icon_1" title="Icon 1">
       <Icon1 of="star-outline" hoverIcon="star" />
       <Icon1 of="bookmark-outline" hoverIcon="bookmark" />

@@ -5,16 +5,20 @@ $alert-height: 48px;
 .alertDemo {
   .alertButton {
     background-color: transparent;
-    border: 2px dashed rgba(0, 0, 0, 0.36);
+    border: 1.5px dashed rgba(0, 0, 0, 0.24);
     border-radius: 4px;
     box-sizing: border-box;
-    color: rgba(0, 0, 0, 0.36);
+    color: rgba(0, 0, 0, 0.24);
     cursor: pointer;
-    font-size: 21px;
-    height: 48px;
-    padding: 0.5rem;
+    font-family: "Open Sans", "Arial", sans-serif;
+    font-size: 32px;
+    font-weight: 300;
+    padding: 0.5rem 1rem;
     &:hover {
       border-style: solid;
+    }
+    &:focus {
+      outline: none;
     }
   }
 
@@ -28,6 +32,7 @@ $alert-height: 48px;
 
     .alert {
       @include flex(l, m);
+      @include shadow(3);
       background-color: $white;
       border: none;
       border-radius: 0;

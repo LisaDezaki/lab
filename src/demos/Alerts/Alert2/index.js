@@ -24,7 +24,7 @@ class Alert2 extends Component {
       //  Dismiss alert automatically after designated time
       if (autoDismiss) {
         setTimeout(() => {
-          this.dismissAlert(name);
+          this.dismissAlert(name)();
         }, autoDismiss);
       }
     };
@@ -54,7 +54,7 @@ class Alert2 extends Component {
           onClick={this.addAlert(
             `alert-${counter}`,
             "alert-circle-o",
-            "This is an alert!"
+            "This is an alert! (Tap to dismiss)"
           )}
         >
           {buttonLabel}
@@ -73,7 +73,7 @@ class Alert2 extends Component {
                 transitionDelay: `${(alerts.length - 1 - i) * 0.025}s`
               }}
             >
-              <i class={cx(css.alertIcon, `zmdi zmdi-${alert.icon}`)} />
+              <i className={cx(css.alertIcon, `zmdi zmdi-${alert.icon}`)} />
               <span className={css.alertMessage}>{alert.message}</span>
             </div>
           ))}

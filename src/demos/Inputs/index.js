@@ -21,15 +21,30 @@ class Inputs extends Component {
   };
 
   render() {
+    const { active, menuActive, onClick } = this.props;
+    const {
+      username1,
+      email1,
+      password1,
+      username2,
+      email2,
+      password2
+    } = this.state;
+
     return (
-      <Section id="Inputs" active={this.props.active}>
+      <Section
+        id="Inputs"
+        active={active}
+        menuActive={menuActive}
+        onClick={onClick}
+      >
         <Article id="Input_1" title="Input 1" direction="col">
           <Input1
             label="Username"
             name="username1"
             onChange={this.onChange}
             type="text"
-            value={this.state.username1}
+            value={username1}
           />
           <Input1
             label="Email"
@@ -37,14 +52,14 @@ class Inputs extends Component {
             onChange={this.onChange}
             type="email"
             placeholder="user@email.com"
-            value={this.state.email1}
+            value={email1}
           />
           <Input1
             label="Password"
             name="password1"
             onChange={this.onChange}
             type="password"
-            value={this.state.password1}
+            value={password1}
           />
         </Article>
         <Article id="Input_2" title="Input 2" direction="col">
@@ -53,7 +68,7 @@ class Inputs extends Component {
             name="username2"
             onChange={this.onChange}
             type="text"
-            value={this.state.username2}
+            value={username2}
           />
           <Input2
             label="Email"
@@ -61,14 +76,14 @@ class Inputs extends Component {
             onChange={this.onChange}
             type="email"
             placeholder="user@email.com"
-            value={this.state.email2}
+            value={email2}
           />
           <Input2
             label="Password"
             name="password2"
             onChange={this.onChange}
             type="password"
-            value={this.state.password2}
+            value={password2}
           />
         </Article>
       </Section>

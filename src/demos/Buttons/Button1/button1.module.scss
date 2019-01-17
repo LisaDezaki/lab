@@ -14,7 +14,7 @@ $color-hidden: $grey-400;
     cursor: pointer;
     display: inline-block;
     height: $btn-size;
-    margin: 1rem;
+    margin: 0.5rem;
     outline: 0;
     padding: 0;
     position: relative;
@@ -22,6 +22,10 @@ $color-hidden: $grey-400;
     transition: all 0.4s cubic-bezier(0, 0, 0.2, 1);
     transform-style: preserve-3d;
     transform-origin: 0 30px -30px;
+    width: 100px;
+    &:focus {
+      outline: none;
+    }
     &:hover {
       transform: rotateX(90deg);
     }

@@ -3,8 +3,13 @@ import { Article, Section } from "../../components";
 import Button1 from "./Button1/index.js";
 import Button2 from "./Button2/index.js";
 
-const Buttons = ({ active, className, style }) => (
-  <Section id="Buttons" active={active}>
+const Buttons = ({ active, className, menuActive, onClick, style }) => (
+  <Section
+    id="Buttons"
+    active={active}
+    menuActive={menuActive}
+    onClick={onClick}
+  >
     <Article id="Button_1" title="Button 1">
       <Button1 label="Earth" />
       <Button1 label="Wind" />
