@@ -2,7 +2,7 @@
 
 .menu {
   @include flex(c, space, col);
-  background-color: #424242;
+  // background-color: #424242;
   padding: 2rem 0;
   transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
   width: 100%;
@@ -51,9 +51,9 @@
       $i: index($colors, $color);
       $len: length($colors);
       &:nth-of-type(#{$len}n + #{($i + 0) % $len}) {
-        color: $color;
+        color: darken($color, 10%);
         &:hover {
-          color: darken($color, 10%);
+          color: darken($color, 20%);
         }
         &.active {
           border-left: 4px solid;

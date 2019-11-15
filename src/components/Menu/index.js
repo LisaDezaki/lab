@@ -8,7 +8,7 @@ const Menu = ({ active, className, data, demo, renderItem, style }) => (
     className={cx(css.menu, demo === null ? css.fullScreen : null, className)}
   >
     <div className={css.menuHead}>
-      <Logo size={54} />
+      <Logo size={80} />
     </div>
     <ul className={cx(css.menuList, className)} style={style}>
       {data.map(item => renderItem(item))}

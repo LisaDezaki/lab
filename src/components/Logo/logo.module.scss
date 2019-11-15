@@ -4,25 +4,34 @@
   cursor: pointer;
   position: relative;
   .logo__img {
-    &:nth-child(n + 2) {
+    &:nth-child(2) {
+      display: none;
+    }
+    &:nth-child(n + 3) {
       @include absolute(0, 0, 0, 0);
       background-color: #fafafa;
     }
-    &:nth-child(2) {
+    &:nth-child(3) {
       animation: glitch1 3s infinite linear;
       transform: translateX(3px);
     }
-    &:nth-child(3) {
+    &:nth-child(4) {
       animation: glitch2 3s infinite linear reverse;
       transform: translateX(-3px);
     }
   }
   &:hover .logo__img {
+    &:nth-child(1) {
+      display: none;
+    }
     &:nth-child(2) {
+      display: inline-block
+    }
+    &:nth-child(3) {
       animation: glitchContinuous 3s infinite linear;
       transform: translateX(5px);
     }
-    &:nth-child(3) {
+    &:nth-child(4) {
       animation: glitchContinuous 4s infinite linear reverse;
       transform: translateX(-5px);
     }
