@@ -3,39 +3,77 @@
 .logo {
   cursor: pointer;
   position: relative;
-  .logo__img {
-    &:nth-child(2) {
-      display: none;
-    }
-    &:nth-child(n + 3) {
-      @include absolute(0, 0, 0, 0);
-      background-color: #fafafa;
-    }
-    &:nth-child(3) {
-      animation: glitch1 3s infinite linear;
+
+  .logo:not(.main) {
+    @include absolute(0, 0, 0, 0);
+  }
+
+  .left {
+    animation: glitch1 3s infinite linear;
+    background: #fafafa;
+    transform: translateX(2px);
+  }
+
+  .right {
+    animation: glitch2 3s infinite linear reverse;
+    background: #fafafa;
+    opacity: 0;
+    transform: translateX(-2px);
+  }
+  .hover {
+    display: none;
+  }
+
+  &:hover {
+    .left {
+      animation: glitchContinuous 3s infinite linear;
       transform: translateX(3px);
     }
-    &:nth-child(4) {
-      animation: glitch2 3s infinite linear reverse;
+    .right {
+      animation: glitchContinuous 4s infinite linear reverse;
       transform: translateX(-3px);
     }
-  }
-  &:hover .logo__img {
-    &:nth-child(1) {
+    .main {
       display: none;
     }
-    &:nth-child(2) {
-      display: inline-block
-    }
-    &:nth-child(3) {
-      animation: glitchContinuous 3s infinite linear;
-      transform: translateX(5px);
-    }
-    &:nth-child(4) {
-      animation: glitchContinuous 4s infinite linear reverse;
-      transform: translateX(-5px);
+    .hover {
+      display: inline-block;
     }
   }
+
+  // .logo__img {
+  //   &:nth-child(2) {
+  //     display: none;
+  //   }
+  //   &:nth-child(n + 3) {
+  //     @include absolute(0, 0, 0, 0);
+  //     background-color: #fafafa;
+  //   }
+  //   &:nth-child(3) {
+  //     animation: glitch1 3s infinite linear;
+  //     transform: translateX(3px);
+  //   }
+  //   &:nth-child(4) {
+  //     animation: glitch2 3s infinite linear reverse;
+  //     transform: translateX(-3px);
+  //   }
+  // }
+  // &:hover .logo__img {
+  //   &:nth-child(1) {
+  //     display: none;
+  //   }
+  //   &:nth-child(2) {
+  //     display: inline-block
+  //   }
+  //   &:nth-child(3) {
+  //     animation: glitchContinuous 3s infinite linear;
+  //     transform: translateX(5px);
+  //   }
+  //   &:nth-child(4) {
+  //     animation: glitchContinuous 4s infinite linear reverse;
+  //     transform: translateX(-5px);
+  //   }
+  // }
 }
 
 //  Glitch Layer 1
