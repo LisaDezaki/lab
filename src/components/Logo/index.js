@@ -3,17 +3,12 @@ import cx from "classnames";
 
 
 
-import img_l from "./img/newlogo_l.png";
-import img_m from "./img/newlogo_m.png";
-import img_r from "./img/newlogo_r.png";
-import img_l2 from "./img/newlogo_glitch_l.png";
-import img_m2 from "./img/newlogo_glitch_m.png";
-import img_r2 from "./img/newlogo_glitch_r.png";
-
-// import logo_l from "./img/logo_glitch_l.png";
-// import logo_m from "./img/logo_normal.png";
-// import logo_h from "./img/logo_glitch_m.png";
-// import logo_r from "./img/logo_glitch_r.png";
+import img_l from "./img/logo_r_l.png";
+import img_m from "./img/logo_r_m.png";
+import img_r from "./img/logo_r_r.png";
+import img_l2 from "./img/logo_g_l.png";
+import img_m2 from "./img/logo_g_m.png";
+import img_r2 from "./img/logo_g_r.png";
 import css from "./logo.module.scss";
 
 const Logo = ({ className, size, to }) => (
