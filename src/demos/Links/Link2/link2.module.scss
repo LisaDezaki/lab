@@ -3,7 +3,7 @@
 .link {
   background-color: inherit;
   border-bottom: 1px dotted;
-  color: inherit;
+  color: $accent-color;
   display: inline-block;
   font-weight: 500;
   perspective: 500px;
@@ -12,8 +12,8 @@
   &::before {
     @include absolute(0, 0, 0, auto);
     @include flex(r, b);
-    background-color: rgba(0, 0, 0, 0.1);
-    color: $white;
+    background-color: rgba($accent-color, 0.1);
+    color: $accent-color;
     content: attr(data-text);
     overflow: hidden;
     transition: width 0.3s;

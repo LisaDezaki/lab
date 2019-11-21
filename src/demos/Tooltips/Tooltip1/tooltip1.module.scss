@@ -2,6 +2,7 @@
 
 .span {
   border-bottom: 1px dotted;
+  color: $accent-color;
   cursor: pointer;
   display: inline-block;
   font-weight: 500;
@@ -9,8 +10,8 @@
   .tooltip {
     @include absolute(5px, -1rem, auto, -1rem);
     @include flex(c, m);
-    background-color: $grey-900;
-    color: $grey-400;
+    background-color: $text-color;
+    color: $white;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
@@ -28,7 +29,7 @@
       $offsetY: hypoteneuse($size/2, $size/2);
       @include absolute(auto, auto, calc(-#{$offsetY + $size}px), 50%);
       border: #{$size * 0.5}px solid;
-      border-color: $grey-900;
+      border-color: $text-color;
       box-sizing: border-box;
       content: "";
       display: block;
@@ -38,7 +39,7 @@
       width: #{$size}px;
     }
     span {
-      color: $grey-400;
+      color: $white;
       border: none;
       font-size: 75%;
       font-weight: 400;
@@ -57,8 +58,9 @@
   &:focus,
   &:hover {
     .tooltip {
-      transform: translateY(calc(-100% - 12px));
       opacity: 1;
+      pointer-events: auto;
+      transform: translateY(calc(-100% - 12px));
     }
   }
 }

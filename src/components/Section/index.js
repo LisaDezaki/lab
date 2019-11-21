@@ -23,6 +23,7 @@ const Section = ({
     style={style}
   >
     {children}
+    <h4 className={css.moresoon}>More coming soon...</h4>
   </section>
 );
 

@@ -4,17 +4,19 @@ $translateDistance: 1rem;
 
 .span {
   border-bottom: 1px dotted;
+  color: $accent-color;
   cursor: pointer;
   display: inline-block;
   font-weight: 500;
   position: relative;
   .tooltip {
     @include absolute(-1rem, auto, auto, -1rem);
-    background-color: $grey-900;
+    background-color: $text-color;
     color: inherit;
     font-family: inherit;
     font-size: inherit;
     line-height: inherit;
+    min-width: 240px;
     opacity: 0;
     padding: 1rem;
     pointer-events: none;
@@ -26,7 +28,7 @@ $translateDistance: 1rem;
       border-bottom: 1px dotted;
       color: $white;
       content: attr(data-text);
-      display: block;
+      display: inline-block;
       font-size: inherit;
       line-height: inherit;
       transform: translateY(-#{$translateDistance});
@@ -34,7 +36,7 @@ $translateDistance: 1rem;
     }
     span {
       border: none;
-      color: $grey-400;
+      color: $white;
       display: inline-block;
       font-size: 14px;
       font-weight: 400;

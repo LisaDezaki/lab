@@ -8,14 +8,14 @@ const Buttons = ({ active, className, style }) => (
     <Article id="Button_1" title="Block Button">
       <Button1 label="Earth" direction="up" />
       <Button1 label="Wind" direction="right" />
-      <Button1 label="Water" direction="down" />
-      <Button1 label="Fire" direction="left" />
+      <Button1 label="Fire" direction="down" />
+      <Button1 label="Water" direction="left" />
     </Article>
     <Article id="Button_2" title="Slider Button">
-      <Button2 label="John" direction="up" />
-      <Button2 label="Paul" direction="right" />
-      <Button2 label="George" direction="down" />
-      <Button2 label="Ringo" direction="left" />
+      <Button2 label="Blinky" direction="up" />
+      <Button2 label="Pinky" direction="right" />
+      <Button2 label="Inky" direction="down" />
+      <Button2 label="Clyde" direction="left" />
     </Article>
   </Section>
 );

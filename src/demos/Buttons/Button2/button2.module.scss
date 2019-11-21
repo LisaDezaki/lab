@@ -25,8 +25,8 @@ $btn-size: 48px;
   &::before {
     @include absolute(0, 0, 0, 0);
     @include flex(c, m);
-    background-color: rgba(0, 0, 0, 0.25);
-    color: transparent;
+    background-color: $accent-color;
+    color: white;
     content: attr(data-label);
     padding: 0 1rem;
     transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
@@ -59,7 +59,6 @@ $btn-size: 48px;
   }
 
   &:hover::before {
-    color: $white;
     transform: translateX(0);
   }
 

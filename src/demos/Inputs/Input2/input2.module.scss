@@ -2,7 +2,7 @@
 
 $fade-color: rgba(0, 0, 0, 0.23);
 $input-size: 56px;
-$label-shrink-size: 110px;
+$label-shrink-size: 120px;
 
 .field {
   @include flex(l, m, rowr);
@@ -28,8 +28,10 @@ $label-shrink-size: 110px;
   }
   .label {
     @include flex(l, m);
-    background-color: rgba(0, 0, 0, 0.1);
-    color: $subtext-color;
+    // background-color: rgba(0, 0, 0, 0.1);
+    background-color: $text-color;
+    // color: $subtext-color;
+    color: $white;
     cursor: text;
     font-weight: 500;
     height: $input-size;
@@ -60,5 +62,9 @@ $label-shrink-size: 110px;
       min-width: 100%;
       padding-left: 2rem;
     }
+  }
+  //  Has focus
+  .input:focus + .label {
+    background-color: $accent-color;
   }
 }

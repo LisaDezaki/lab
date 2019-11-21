@@ -4,6 +4,8 @@ $btnHeight: 48px;
 $btnWidth: 100px;
 $colorExposed: $white;
 $colorHidden: $grey-400;
+$colorActiveExposed: $accent-color;
+$colorActiveHidden: darken($accent-color, 20%);
 
 .perspective {
   perspective: 2000px;
@@ -44,14 +46,17 @@ $colorHidden: $grey-400;
     }
     .label-hover {
       @include absolute(0, 0, 0, 0);
-      background-color: $colorHidden;
+      background-color: $colorActiveHidden;
+      // color: $accent-color;
+      color: $white;
     }
     &:hover {
       .label {
         background-color: $colorHidden;
       }
       .label-hover {
-        background-color: $colorExposed;
+        background-color: $colorActiveExposed;
+        color: $white;
       }
     }
 
