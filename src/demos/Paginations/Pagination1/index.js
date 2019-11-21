@@ -62,18 +62,22 @@ class Pagination1 extends Component {
               </li>
             ))}
           </ul>
-          <ul
-            className={css.indicatorList}
-            style={{
-              transform: `translate(${indicatorOffsetX}, ${indicatorOffsetY})`
-            }}
-          >
-            {array.map(n => (
-              <li key={n} className={cx(css.page, css.indicatorItem)}>
-                {n}
-              </li>
-            ))}
-          </ul>
+          <div className={css.indicator} style={{
+                transform: `translateX(${indicatorOffsetX})`
+              }}>
+            <ul
+              className={css.indicatorList}
+              style={{
+                transform: `translateY(${indicatorOffsetY})`
+              }}
+            >
+              {array.map(n => (
+                <li key={n} className={cx(css.page, css.indicatorItem)}>
+                  {n}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
         <i
           className={cx(css.prev, "zmdi zmdi-arrow-right")}

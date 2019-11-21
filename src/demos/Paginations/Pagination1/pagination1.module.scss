@@ -8,7 +8,6 @@ $btn-size: 48px;
   position: relative;
 
   .pages {
-    overflow: hidden;
     position: relative;
 
     .pageList,
@@ -20,15 +19,23 @@ $btn-size: 48px;
     .pageList {
       flex-direction: row;
     }
+    .indicator {
+      outline: 2px solid $accent-color;
+      @include absolute(0, auto, 0, auto);
+      background-color: $accent-color;
+      height: $btn-size;
+      overflow: hidden;
+      transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
+      width: $btn-size;
+    }
     .indicatorList {
       @include absolute(0, auto, auto, 0);
-      background-color: $white;
       flex-direction: column;
       pointer-events: none;
       transition: transform 0.3s cubic-bezier(0, 0, 0.2, 1);
 
       .page {
-        color: inherit;
+        color: $white;
       }
     }
   }
@@ -37,7 +44,7 @@ $btn-size: 48px;
   .page,
   .next {
     @include flex(c, m);
-    color: $white;
+    color: $text-color;
     cursor: pointer;
     font-size: 150%;
     font-weight: 500;
@@ -45,9 +52,8 @@ $btn-size: 48px;
     margin: 0;
     position: relative;
     width: $btn-size;
-    transition: all 0.3s cubic-bezier(0, 0, 0.2, 1);
     &:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+      color: $accent-color;
     }
   }
 }

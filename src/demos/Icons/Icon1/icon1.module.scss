@@ -3,7 +3,7 @@
 $subtext-color: rgba(0, 0, 0, 0.32);
 
 .icon {
-  background-color: $white;
+  background-color: $bg-color;
   border: none;
   border-radius: 50%;
   color: inherit;
@@ -18,22 +18,21 @@ $subtext-color: rgba(0, 0, 0, 0.32);
   i.iconHover {
     @include absolute(0, 0, 0, 0);
     @include flex(c, m);
-    background-color: $white;
     border-radius: 50%;
     font-size: 175%;
     transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
   }
-  i.iconStart {
-    color: $subtext-color;
-  }
   i.iconHover {
-    @include absolute(-6px, -6px, -6px, -6px);
-    border: 6px solid;
+    @include absolute(-2px, -2px, -2px, -2px);
+    border: 2px solid;
+    color: $accent-color;
     transform: scale(0);
   }
   &:hover {
     i.iconStart {
       @include absolute(-8px, -8px, -8px, -8px);
+      transform: scale(0);
+      opacity: 0;
     }
     i.iconHover {
       transform: scale(1);

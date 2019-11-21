@@ -38,7 +38,7 @@ $label-size: 24px;
   .input:focus,
   .input:not(:placeholder-shown),
   &.hasValue .input {
-    background-color: rgba(255, 255, 255, 0.35);
+    // background-color: rgba(255, 255, 255, 0.35);
     height: $input-size;
     max-height: $input-size;
     outline: none;
@@ -62,4 +62,8 @@ $label-size: 24px;
       padding: 0 0.5rem;
     }
   }
+  //  Has focus {
+    .input:focus {
+      border-color: $accent-color;
+    }
 }

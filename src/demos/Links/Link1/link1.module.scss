@@ -2,7 +2,7 @@
 
 .link {
   border-bottom: 1px dotted;
-  color: inherit;
+  color: $accent-color;
   display: inline-block;
   font-weight: 500;
   perspective: 500px;
@@ -27,7 +27,7 @@
     text-decoration: none;
     &::after {
       background-color: $white;
-      color: $grey-600;
+      color: $accent-color;
       opacity: 1;
       transform: translateX(0);
       transition: all 0.3s, opacity 0.01s;
