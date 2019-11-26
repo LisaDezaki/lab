@@ -16,9 +16,9 @@ const Spinners = ({ active, className, style }) => (
       <Spinner2 reverse />
     </Article>
     <Article id="Spinner_3" title="Atomic">
-      <Spinner3 number={6} />
-      <Spinner3 number={6} colors={["magenta", "cyan"]} />
-      <Spinner3 number={6} colors={["#b4da55", "#f42069"]} />
+      <Spinner3 number={3} />
+      <Spinner3 number={5} />
+      <Spinner3 number={9} />
     </Article>
   </Section>
 );

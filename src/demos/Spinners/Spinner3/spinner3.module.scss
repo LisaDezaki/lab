@@ -1,16 +1,5 @@
 @import "src/css/utils";
 
-@mixin orbitSettings ($offsetX: 0, $offsetY: 0, $rotation: 0, $animDuration: 1s, $animDelay: 0s) {
-  top: $offsetY;
-  right: $offsetX;
-  bottom: $offsetY;
-  left: $offsetX;
-  transform: rotate($rotation);
-  &::before {
-    animation: orbit $animDuration infinite ease-in-out $animDelay;
-  }
-}
-
 .spinner {
   border-radius: 50%;
   height: 60px;
@@ -23,6 +12,7 @@
     @include flex(c, t);
     &::before {
       @include absolute(0,auto,auto,0);
+      animation: orbit #{random() + 1}s infinite ease-in-out;
       content: "";
       border: 6px solid;
       border-color: inherit;
@@ -33,31 +23,17 @@
       width: 0;
     }
     &:nth-of-type(odd) {
-      animation: spin #{random(5)}s linear infinite;
       border-color: $accent-color;
     }
     &:nth-of-type(even) {
-      animation: spin #{random(5)}s linear infinite reverse;
       border-color: darken($accent-color, 10%);
     }
-    &:nth-of-type(1) {
-      @include orbitSettings(0, 0, 0, 1s, 0s);
-    }
-    &:nth-of-type(2) {
-      @include orbitSettings(percentage(random()/3), percentage(random()/3), #{random(360)}deg, 1.8s, 0.1s);
-    }
-    &:nth-of-type(3) {
-      @include orbitSettings(percentage(random()/3), percentage(random()/3), #{random(360)}deg, 1.2s, 0.2s);
-    }
-    &:nth-of-type(4) {
-      @include orbitSettings(percentage(random()/3), percentage(random()/3), #{random(360)}deg, 1.6s, 0.3s);
-    }
-    &:nth-of-type(5) {
-      @include orbitSettings(percentage(random()/3), percentage(random()/3), #{random(360)}deg, 1.4s, 0.4s);
-    }
-    &:nth-of-type(6) {
-      @include orbitSettings(percentage(random()/3), percentage(random()/3), #{random(360)}deg, 1s, 0.5s);
-    }
+  }
+}
+
+@for $n from 1 through 9 {
+  .spinner .spinner_n:nth-of-type(#{$n})::before {
+    animation-delay: #{-0.2 * $n}s;
   }
 }
 

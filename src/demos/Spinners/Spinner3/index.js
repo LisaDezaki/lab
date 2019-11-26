@@ -8,6 +8,25 @@ const Spinner3 = ({ className, colors, id, number, style }) => {
     array[i] = i + 1;
   }
 
+  let getStyles = (n) => {
+    let styleObj = {}
+    let offsetX = Math.floor((Math.random() * 25)) + '%';
+    let offsetY = (Math.floor(Math.random() * 25)) + '%';
+    let rotation = (Math.floor(Math.random() * 360)) + 'deg';
+    console.log(offsetX, offsetY, rotation);
+    if (colors) {
+      styleObj.borderColor = colors[n % colors.length]
+    }
+    styleObj.top = offsetY;
+    styleObj.right = offsetX;
+    styleObj.bottom = offsetY;
+    styleObj.left = offsetX;
+    styleObj.transform = `rotate(${rotation})`;
+    styleObj.animation = `spin ${Math.random() + n}s linear infinite`;
+    if (n % 2 === 0) { styleObj.animation += ' reverse'; }
+    return styleObj;
+  }
+
   return (
     <div
       className={cx(
@@ -21,7 +40,7 @@ const Spinner3 = ({ className, colors, id, number, style }) => {
         <div
           className={css.spinner_n}
           key={n}
-          style={ colors ? { borderColor: colors[n % colors.length] } : null }
+          style={ getStyles(n) }
         />
       ))}
     </div>
