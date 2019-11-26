@@ -1,7 +1,7 @@
 @import "src/css/utils";
 
 .spinner {
-  // animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
   border: 2px solid $accent-color;
   border-radius: 50%;
   height: 80px;
@@ -37,10 +37,11 @@
     width: 8px;
   }
   &.type--cut .spinner_n::before {
-    border-top: 6px solid $bg-color;
-    height: 6px;
-    margin-top: -4px;
-    width: 8px;
+    // border-top: 10px solid $bg-color;
+    height: 10px;
+    margin-top: -6px;
+    width: 32px;
+    background: linear-gradient(90deg, transparent 0, $bg-color 20%, $bg-color 80%, transparent 100%);
   }
   &.type--diamond .spinner_n::before {
     background-color: $accent-color;

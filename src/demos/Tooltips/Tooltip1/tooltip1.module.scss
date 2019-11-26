@@ -10,7 +10,7 @@
   .tooltip {
     @include absolute(5px, -1rem, auto, -1rem);
     @include flex(c, m);
-    background-color: $text-color;
+    background-color: $accent-color;
     color: $white;
     font-family: inherit;
     font-size: inherit;
@@ -29,7 +29,8 @@
       $offsetY: hypoteneuse($size/2, $size/2);
       @include absolute(auto, auto, calc(-#{$offsetY + $size}px), 50%);
       border: #{$size * 0.5}px solid;
-      border-color: $text-color;
+      // border-color: $text-color;
+      border-color: $accent-color;
       box-sizing: border-box;
       content: "";
       display: block;

@@ -82,11 +82,39 @@
     transform: rotate(360deg);
   }
 }
-// @keyframes spin-ccw {
-//   0% {
-//     transform: rotate(0deg);
-//   }
-//   100% {
-//     transform: rotate(-360deg);
-//   }
-// }
+
+@keyframes spinXY {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+@keyframes spinXYreverse {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(-360deg) rotateY(-360deg);
+  }
+}
+
+@keyframes spinXYZ {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+  }
+}
+
+@keyframes spinXYZreverse {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(-360deg) rotateY(-360deg) rotateZ(-360deg);
+  }
+}
