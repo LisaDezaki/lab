@@ -11,7 +11,7 @@ $translateDistance: 1rem;
   position: relative;
   .tooltip {
     @include absolute(-1rem, auto, auto, -1rem);
-    background-color: $text-color;
+    background-color: $accent-color;
     color: inherit;
     font-family: inherit;
     font-size: inherit;

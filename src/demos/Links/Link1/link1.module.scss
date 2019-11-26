@@ -12,7 +12,9 @@
     @include absolute(auto, -2px, 0, -2px);
     @include flex(c, b);
     background-color: $grey-400;
+    background-color: darken($accent-color, 15%);
     color: $grey-800;
+    color: $white;
     content: attr(data-text);
     opacity: 0;
     transform: rotateX(90deg);
@@ -26,8 +28,7 @@
     outline: 0;
     text-decoration: none;
     &::after {
-      background-color: $white;
-      color: $accent-color;
+      background-color: $accent-color;
       opacity: 1;
       transform: translateX(0);
       transition: all 0.3s, opacity 0.01s;

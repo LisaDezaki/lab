@@ -1,0 +1,87 @@
+@import "src/css/utils";
+
+@mixin orbitSettings ($offsetX: 0, $offsetY: 0, $rotation: 0, $animDuration: 1s, $animDelay: 0s) {
+  top: $offsetY;
+  right: $offsetX;
+  bottom: $offsetY;
+  left: $offsetX;
+  transform: rotate($rotation);
+  &::before {
+    animation: orbit $animDuration infinite ease-in-out $animDelay;
+  }
+}
+
+.spinner {
+  border-radius: 50%;
+  height: 60px;
+  margin: 1rem 2rem;
+  position: relative;
+  width: 60px;
+
+  .spinner_n {
+    @include absolute(0, 0, 0, 0);
+    @include flex(c, t);
+    &::before {
+      @include absolute(0,auto,auto,0);
+      content: "";
+      border: 6px solid;
+      border-color: inherit;
+      border-radius: 50%;
+      height: 0;
+      margin-left: -6px;
+      margin-top: -6px;
+      width: 0;
+    }
+    &:nth-of-type(odd) {
+      animation: spin #{random(5)}s linear infinite;
+      border-color: $accent-color;
+    }
+    &:nth-of-type(even) {
+      animation: spin #{random(5)}s linear infinite reverse;
+      border-color: darken($accent-color, 10%);
+    }
+    &:nth-of-type(1) {
+      @include orbitSettings(0, 0, 0, 1s, 0s);
+    }
+    &:nth-of-type(2) {
+      @include orbitSettings(percentage(random()/3), percentage(random()/3), #{random(360)}deg, 1.8s, 0.1s);
+    }
+    &:nth-of-type(3) {
+      @include orbitSettings(percentage(random()/3), percentage(random()/3), #{random(360)}deg, 1.2s, 0.2s);
+    }
+    &:nth-of-type(4) {
+      @include orbitSettings(percentage(random()/3), percentage(random()/3), #{random(360)}deg, 1.6s, 0.3s);
+    }
+    &:nth-of-type(5) {
+      @include orbitSettings(percentage(random()/3), percentage(random()/3), #{random(360)}deg, 1.4s, 0.4s);
+    }
+    &:nth-of-type(6) {
+      @include orbitSettings(percentage(random()/3), percentage(random()/3), #{random(360)}deg, 1s, 0.5s);
+    }
+  }
+}
+
+@keyframes orbit {
+  0% {
+    top: 0;
+    left: 0;
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.25);
+  }
+  50% {
+    top: 100%;
+    left: 100%;
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(0.8);
+  }
+  100% {
+    top: 0;
+    left: 0;
+    transform: scale(1);
+  }
+}
+
