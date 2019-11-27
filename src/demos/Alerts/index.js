@@ -1,15 +1,15 @@
 import React from "react";
 import { Article, Section } from "../../components";
-import Alert1 from "./Alert1/index.js";
-import Alert2 from "./Alert2/index.js";
+import CornerAlert from "./CornerAlert/index.js";
+import ToastAlert from "./ToastAlert/index.js";
 
 const Alerts = ({ active, className, style }) => (
   <Section id="Alerts" active={active}>
-    <Article id="Alert_1" title="Corner Alert">
-      <Alert1 buttonLabel="Click me" autoDismiss={10000} />
+    <Article id="CornerAlert" title="Corner">
+      <CornerAlert buttonLabel="Click me" autoDismiss={10000} />
     </Article>
-    <Article id="Alert_2" title="Footer Alert">
-      <Alert2 buttonLabel="Click me" autoDismiss={10000} />
+    <Article id="ToastAlert" title="Toast">
+      <ToastAlert buttonLabel="Click me" autoDismiss={10000} />
     </Article>
   </Section>
 );

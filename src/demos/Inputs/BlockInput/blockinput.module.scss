@@ -1,0 +1,70 @@
+@import "src/css/utils";
+
+$fade-color: rgba(0, 0, 0, 0.23);
+$input-size: 56px;
+$label-shrink-size: 56px;
+
+.field {
+  @include flex(l, m, rowr);
+  background-color: inherit;
+  margin: 0 auto 1rem;
+  height: $input-size;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  input {
+    background-color: $white;
+    border: none;
+    color: $subtext-color;
+    cursor: text;
+    font-size: 125%;
+    font-weight: 500;
+    height: $input-size;
+    transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+    width: 100%;
+    &::placeholder {
+      color: $fade-color;
+    }
+  }
+  .label {
+    @include flex(l, m);
+    // background-color: rgba(0, 0, 0, 0.1);
+    background-color: $text-color;
+    // color: $subtext-color;
+    color: $white;
+    cursor: text;
+    font-weight: 500;
+    height: $input-size;
+    margin: 0;
+    transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+  }
+  //  Has either value or focus
+  .input:focus,
+  .input:not(:placeholder-shown):not(:focus),
+  &.hasValue .input {
+    outline: 0;
+    padding: 0 1rem;
+    width: calc(100% - #{$label-shrink-size});
+    max-width: calc(100% - #{$label-shrink-size});
+    min-width: calc(100% - #{$label-shrink-size});
+    & + .label {
+      min-width: $label-shrink-size;
+      padding-left: 1.5rem;
+    }
+  }
+  //  Has neither value nor focus
+  &:not(.hasValue) .input:not(:focus),
+  .input:placeholder-shown:not(:focus) {
+    width: 0;
+    max-width: 0;
+    min-width: 0;
+    & + .label {
+      min-width: 100%;
+      padding-left: 2rem;
+    }
+  }
+  //  Has focus
+  .input:focus + .label {
+    background-color: $accent-color;
+  }
+}

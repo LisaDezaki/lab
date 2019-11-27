@@ -1,20 +1,20 @@
 import React from "react";
 import { Article, Section } from "../../components";
-import Icon1 from "./Icon1/index.js";
-import Icon2 from "./Icon2/index.js";
+import ExpandIcon from "./ExpandIcon/index.js";
+import TickIcon from "./TickIcon/index.js";
 
 const Icons = ({ active, className, style }) => (
   <Section id="Icons" active={active}>
-    <Article id="Icon_1" title="Highlight">
-      <Icon1 of="star" hoverIcon="star-outline" />
-      <Icon1 of="bookmark" hoverIcon="bookmark-outline" />
-      <Icon1 of="favorite" hoverIcon="favorite-outline" />
+    <Article id="ExpandIcons" title="Expand">
+      <ExpandIcon of="star" hoverIcon="star-outline" />
+      <ExpandIcon of="bookmark" hoverIcon="bookmark-outline" />
+      <ExpandIcon of="favorite" hoverIcon="favorite-outline" />
     </Article>
-    <Article id="Icon_2" title="Tick">
-      <Icon2 of="home" />
-      <Icon2 of="navigation" />
-      <Icon2 of="pin" />
-      <Icon2 of="cutlery" />
+    <Article id="TickIcons" title="Tick">
+      <TickIcon of="home" />
+      <TickIcon of="navigation" />
+      <TickIcon of="pin" />
+      <TickIcon of="cutlery" />
     </Article>
   </Section>
 );

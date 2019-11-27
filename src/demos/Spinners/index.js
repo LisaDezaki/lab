@@ -1,24 +1,25 @@
 import React from "react";
 import { Article, Section } from "../../components";
-import Spinner1 from "./Spinner1/index.js";
-import Spinner2 from "./Spinner2/index.js";
-import Spinner3 from "./Spinner3/index.js";
+import ParticleSpinner from "./ParticleSpinner/index.js";
+import PulseSpinner from "./PulseSpinner/index.js";
+import WheelSpinner from "./WheelSpinner/index.js";
 
 const Spinners = ({ active, className, style }) => (
   <Section id="Spinners" active={active}>
-    <Article id="Spinner_1" title="Spin">
-      <Spinner1 number={2} type="cut" />
-      <Spinner1 number={3} type="cut" reverse />
-      <Spinner1 number={4} type="cut" />
+    <Article id="ParticleSpinner" title="Particle">
+      <ParticleSpinner number={3} />
+      <ParticleSpinner number={5} />
+      <ParticleSpinner number={9} />
     </Article>
-    <Article id="Spinner_2" title="Pulse">
-      <Spinner2 />
-      <Spinner2 reverse />
+    <Article id="PulseSpinner" title="Pulse">
+      <PulseSpinner number={2} />
+      <PulseSpinner number={3} reverse />
+      <PulseSpinner number={7} />
     </Article>
-    <Article id="Spinner_3" title="Atomic">
-      <Spinner3 number={3} />
-      <Spinner3 number={5} />
-      <Spinner3 number={9} />
+    <Article id="WheelSpinner" title="Wheel">
+      <WheelSpinner number={2} type="cut" />
+      <WheelSpinner number={3} type="cut" reverse />
+      <WheelSpinner number={4} type="cut" />
     </Article>
   </Section>
 );
