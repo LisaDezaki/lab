@@ -54,35 +54,41 @@ class Alert2 extends Component {
       "You just couldn't stay away could you?",
       "You should talk to someone about your compulsive need to keep clicking useless buttons.",
       "I'm bored of typing these so I'm going to loop now.",
-      "You did it! This is an alert!",
-      "This is getting out of hand. Now there are two of them!",
-      "Okay, you get it. Alerts pop up. That's it. That's the whole thing.",
-      "We're done, there aren't any new messages hidden here.",
-      "That was the last one. I promise.",
-      "You just couldn't stay away could you?",
-      "You should talk to someone about your compulsive need to keep clicking useless buttons.",
-      "I'm bored of typing these so I'm going to loop now.",
-      "You did it! This is an alert!",
-      "This is getting out of hand. Now there are two of them!",
-      "Okay, you get it. Alerts pop up. That's it. That's the whole thing.",
-      "We're done, there aren't any new messages hidden here.",
-      "That was the last one. I promise.",
-      "You just couldn't stay away could you?",
-      "You should talk to someone about your compulsive need to keep clicking useless buttons.",
-      "I'm bored of typing these so I'm going to loop now.",
+    ];
+    const secretMessages = [
       "Oh, wow, you're a real achievement hunter, aren't ya?",
       "Congratulations, you did it. You found my secret message.",
       "Hope it was worth it.",
       "The funniest part is that you don't know if there's another hidden message 9000 alerts deep.",
-      "There's only one way to find out."
-    ];
+      "There's only one way to find out ;)"
+    ]
+
+    let alertIcon = "alert-circle-o";
     let alertMessage = alertMessages[counter % alertMessages.length];
-    return this.addAlert(`alert-${counter}`, "alert-circle-o", alertMessage);
+    
+    let secretMessagesLoopAfter = 3;
+    let secretMessagesBegin = alertMessages.length * secretMessagesLoopAfter;
+    let secretMessagesEnd = secretMessagesBegin + secretMessages.length;
+
+    if (counter >= secretMessagesBegin && counter < secretMessagesEnd) {
+      alertIcon = "alert-triangle";
+      alertMessage = secretMessages[counter - secretMessagesBegin];
+    }
+
+    if (counter >= secretMessagesEnd) {
+      alertMessage = alertMessages[(counter - secretMessagesEnd) % alertMessages.length];
+    }
+
+    if (counter === 9000 ) {
+      alertMessage = "Oh my god I hope you found this by searching my code on Github!";
+    }
+    
+    return this.addAlert(`alert-${counter}`, alertIcon, alertMessage);
   };
 
   render() {
     const { buttonLabel } = this.props;
-    const { alerts, counter, dismissing } = this.state;
+    const { alerts, dismissing } = this.state;
 
     return (
       <div className={css.alertDemo}>

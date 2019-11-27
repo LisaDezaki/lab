@@ -88,7 +88,7 @@ class Alert1 extends Component {
 
   render() {
     const { buttonLabel } = this.props;
-    const { alerts, counter } = this.state;
+    const { alerts } = this.state;
     const paddingBottom = `calc(100vh - ${alerts.length * 48}px)`;
 
     return (
