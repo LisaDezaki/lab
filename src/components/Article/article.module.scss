@@ -17,7 +17,7 @@
 
   .content {
     @include flex(c, m, row, block, wrap);
-    max-width: 640px;
+    max-width: 800px;
     width: 100%;
   }
 

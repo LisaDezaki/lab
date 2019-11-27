@@ -10,8 +10,8 @@
   position: relative;
   text-decoration: none;
   &::before {
-    @include absolute(0, auto, 0, 0);
-    @include flex(l, b);
+    @include absolute(0, 0, 0, auto);
+    @include flex(r, b);
     background-color: $accent-color;
     color: $white;
     content: attr(data-text);
