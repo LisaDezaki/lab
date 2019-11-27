@@ -6,7 +6,7 @@ import Spinner3 from "./Spinner3/index.js";
 
 const Spinners = ({ active, className, style }) => (
   <Section id="Spinners" active={active}>
-    <Article id="Spinner_1" title="Spinner 1">
+    <Article id="Spinner_1" title="Spin">
       <Spinner1 number={2} type="cut" />
       <Spinner1 number={3} type="cut" reverse />
       <Spinner1 number={4} type="cut" />

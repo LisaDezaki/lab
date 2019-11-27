@@ -33,7 +33,7 @@ class Inputs extends Component {
 
     return (
       <Section id="Inputs" active={active}>
-        <Article id="Input_1" title="Input 1" direction="col">
+        <Article id="Input_1" title="Line" direction="col">
           <Input1
             label="Username"
             name="username1"
@@ -57,7 +57,7 @@ class Inputs extends Component {
             value={password1}
           />
         </Article>
-        <Article id="Input_2" title="Input 2" direction="col">
+        <Article id="Input_2" title="Block" direction="col">
           <Input2
             label="Username"
             name="username2"

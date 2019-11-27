@@ -5,7 +5,7 @@ import Tooltip2 from "./Tooltip2/index.js";
 
 const Tooltips = ({ active, className, style }) => (
   <Section id="Tooltips" active={active}>
-    <Article id="Tooltip_1" title="Tooltip 1">
+    <Article id="Tooltip_1" title="Tip">
       <p>
         Volutpat consectetur{" "}
         <Tooltip1 tip="This is a tooltip. There's extra information hidden here.">
@@ -19,7 +19,7 @@ const Tooltips = ({ active, className, style }) => (
         nostra id.
       </p>
     </Article>
-    <Article id="Tooltip_2" title="Tooltip 2">
+    <Article id="Tooltip_2" title="Definition">
       <p>
         Volutpat consectetur{" "}
         <Tooltip2 tip="This is a tooltip. There's extra information hidden here.">

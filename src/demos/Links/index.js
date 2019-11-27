@@ -5,14 +5,14 @@ import Link2 from "./Link2/index.js";
 
 const Links = ({ active, className, style }) => (
   <Section id="Links" active={active}>
-    <Article id="Link_1" title="Link 1">
+    <Article id="Link_1" title="Pop Up">
       <p>
-        Volutpat consectetur <Link1>suspendisse</Link1> cubilia imperdiet ac
-        ullamcorper mi parturient eu nullam molestie faucibus ante sit congue{" "}
-        <Link1>condimentum</Link1> nostra id.
+        The <Link1 to="https://en.wikipedia.org/wiki/Aesthetic%E2%80%93usability_effect">aesthetic–usability
+        effect</Link1> describes a paradox that people perceive more aesthetic designs as much more intuitive
+        than those considered to be less aesthetically pleasing.
       </p>
     </Article>
-    <Article id="Link_2" title="Link 2">
+    <Article id="Link_2" title="Backslide">
       <p>
         Volutpat consectetur <Link2>suspendisse</Link2> cubilia imperdiet ac
         ullamcorper mi parturient eu nullam molestie faucibus ante sit congue{" "}
