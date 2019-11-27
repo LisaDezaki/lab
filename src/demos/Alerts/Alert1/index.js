@@ -67,6 +67,25 @@ class Alert1 extends Component {
     };
   };
 
+  generateAlert = () => {
+    const { counter } = this.state;
+    const alertMessages = [
+      "Hey, stop pressing that.",
+      "Well don't click it again! Why would you do that?",
+      "Okay, fine. Click it all you want.",
+      "I don't even care",
+      "I'm serious. It's fine. I'm fine. It's fine.",
+      "It's not even bothering me.",
+      "I can do this all day. I'm just a simple array of strings. How long have you got?",
+      "...",
+      ".....",
+      "..........",
+      "Try the other alert button at least, would you? That one's way more fun."
+    ];
+    let alertMessage = alertMessages[counter % alertMessages.length];
+    return this.addAlert(`alert-${counter}`, "alert-circle-o", alertMessage);
+  };
+
   render() {
     const { buttonLabel } = this.props;
     const { alerts, counter } = this.state;
@@ -76,11 +95,7 @@ class Alert1 extends Component {
       <div className={css.alertDemo}>
         <button
           className={css.alertButton}
-          onClick={this.addAlert(
-            `alert-${counter}`,
-            "alert-circle-o",
-            "This is an alert! (Tap to dismiss)"
-          )}
+          onClick={this.generateAlert()}
         >
           {buttonLabel}
         </button>

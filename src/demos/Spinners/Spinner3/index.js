@@ -13,7 +13,6 @@ const Spinner3 = ({ className, colors, id, number, style }) => {
     let offsetX = Math.floor((Math.random() * 25)) + '%';
     let offsetY = (Math.floor(Math.random() * 25)) + '%';
     let rotation = (Math.floor(Math.random() * 360)) + 'deg';
-    console.log(offsetX, offsetY, rotation);
     if (colors) {
       styleObj.borderColor = colors[n % colors.length]
     }
