@@ -78,14 +78,12 @@ class CornerAlert extends Component {
       "It's not even bothering me.",
       "I can do this all day. I'm just a simple array of strings. How long have you got?",
       "...",
-      ".....",
-      "..........",
       "Try the other alert button at least, would you? That one's way more fun.",
       "You don't *have* to bug test everything, you know?",
       "I know where my bugs are thank you very much.",
       "I mean... bugs? What bugs? I don't write bugs.",
       "*Laughs nervously in Unemployed*",
-      "Loops!"
+      "From the top!"
     ];
     let alertMessage = alertMessages[counter % alertMessages.length];
     return this.addAlert(`alert-${counter}`, "alert-circle-o", alertMessage);

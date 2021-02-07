@@ -17,15 +17,16 @@
 
   .title {
     @include font(display1);
+    strong {
+      color: $accent-color;
+      font-weight: 600;
+    }
   }
 
   .menuHead {
     @include flex(c, m, row);
     align-self: center;
-    // background-color: #fafafa;
     border-radius: 50%;
-    height: 80px;
-    width: 80px;
   }
 
   .menuList {
@@ -37,22 +38,25 @@
   }
 
   .menuItem {
-    @include flex(l, m, row);
+    @include flex(c, m, row);
     cursor: pointer;
-    font-size: 24px;
+    font-size: 13px;
+    font-weight: 700;
     list-style-type: none;
     height: 52px;
-    margin: 0.25rem 0;
     min-width: $menu-collapse-width;
     padding: 0.5rem 2rem;
-    transition: border-left 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+    text-transform: uppercase;
+    transition: background-color 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+                color 0.25s cubic-bezier(0.23, 1, 0.32, 1);
     width: 100%;
     &:hover,
     &.active {
       color: $accent-color;
     }
     &.active {
-      border-left: 4px solid;
+      background-color: $accent-color;
+      color: white;
     }
   }
 }
