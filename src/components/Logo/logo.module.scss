@@ -13,11 +13,8 @@
   }
 
   &:hover {
-    .main {
-      display: none;
-    }
     .hover {
-      display: inline-block;
+      display: flex;
     }
   }
 }

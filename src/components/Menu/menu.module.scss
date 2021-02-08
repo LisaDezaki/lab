@@ -17,9 +17,13 @@
 
   .title {
     @include font(display1);
-    strong {
+    span {
       color: $accent-color;
+      font-size: 80%;
       font-weight: 600;
+    }
+    strong {
+      font-weight: 400;
     }
   }
 
