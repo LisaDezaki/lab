@@ -19,22 +19,39 @@ class App extends Component {
     super(props);
     this.state = {
       demo: null,
-      menuActive: true
+      menuActive: true,
+      previousActiveIndex: null
     };
   }
 
   closeMenu = () => {
-    this.setState({ menuActive: false });
+    this.setState({
+      menuActive: false
+    });
   };
 
   selectSection = demo => {
     return () => {
+      
+      // let previousIndex = sections.indexOf(this.state.demo);
+      // let nextIndex = sections.indexOf(demo);
+      // let incrementing = nextIndex > previousIndex;
+      
+//       console.log(
+//         `Moving from
+// ${this.state.demo} (${previousIndex})
+// ${incrementing ? 'up' : 'down'} to
+// ${demo} (${nextIndex})`
+//       );
+
       this.setState({ demo, menuActive: false });
     };
   };
 
   toggleMenu = () => {
-    this.setState(state => ({ menuActive: !state.menuActive }));
+    this.setState(state => ({
+      menuActive: !state.menuActive
+    }));
   };
 
   render() {

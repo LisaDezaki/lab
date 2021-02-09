@@ -33,34 +33,48 @@
     border-radius: 50%;
   }
 
-  .menuList {
-    @include flex(c, m, col);
+  div.menuListContainer {
+    position: relative;
     margin: 0;
     max-width: $menu-width;
     padding: 0;
     width: 100%;
-  }
 
-  .menuItem {
-    @include flex(c, m, row);
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 700;
-    list-style-type: none;
-    height: 52px;
-    min-width: $menu-collapse-width;
-    padding: 0.5rem 2rem;
-    text-transform: uppercase;
-    transition: background-color 0.25s cubic-bezier(0.23, 1, 0.32, 1),
-                color 0.25s cubic-bezier(0.23, 1, 0.32, 1);
-    width: 100%;
-    &:hover,
-    &.active {
-      color: $accent-color;
+    ul.menuList,
+    ul.menuActiveIndicator {
+      @include flex(c, m, col);
+      margin: 0;
+      padding: 0;
+      width: 100%;
+
+      li.menuItem {
+        @include flex(c, m, row);
+        @include font(label);
+        cursor: pointer;
+        list-style-type: none;
+        height: 52px;
+        min-width: $menu-collapse-width;
+        padding: 0.5rem 2rem;
+        text-transform: uppercase;
+        transition: background-color 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+                    color 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+        width: 100%;
+        &:hover {
+          color: $accent-color;
+        }
+      }
     }
-    &.active {
+
+    ul.menuActiveIndicator {
+      @include absolute(0,0,0,0);
       background-color: $accent-color;
-      color: white;
+      color: $bg-color;
+      transition: clip-path 0.3s cubic-bezier(0,0,0.2,1);
+      z-index: 5;
+      
+      li.menuItem:hover {
+        color: $bg-color;
+      }
     }
   }
 }

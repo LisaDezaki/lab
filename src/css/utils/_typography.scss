@@ -1,8 +1,13 @@
 @mixin font($name) {
- @if $name = display1 {
+ @if $name == display1 {
      font-size: 40px;
      font-weight: 200;
      letter-spacing: -2px;
      strong { font-weight: 400; }
+ }
+ @if $name == label {
+     font-size: 12px;
+     font-weight: 600;
+     letter-spacing: 0.75px;
  }   
 }
