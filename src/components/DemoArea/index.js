@@ -13,38 +13,24 @@ import {
 import css from "./demoArea.module.scss";
 
 const DemoArea = ({
-  activeDemo,
-  className,
-  isMenuActive,
-  onClick,
-  onMenuClick,
-  style
+  activeIndex,
+  data
 }) => (
   <div
     className={cx(
       css.demoArea,
-      activeDemo === null ? css.hide : null,
-      className
+      activeIndex === null ? css.hide : null,
     )}
-    style={style}
   >
-    <i
-      className={cx(
-        css.menuButton,
-        isMenuActive ? css.menuActive : null,
-        `zmdi zmdi-${isMenuActive ? "arrow-left" : "menu"}`
-      )}
-      onClick={onMenuClick}
-    />
-    <div className={css.activeDemo} onClick={onClick}>
-      <Alerts active={activeDemo === "Alerts"} />
-      <Buttons active={activeDemo === "Buttons"} />
-      <Icons active={activeDemo === "Icons"} />
-      <Inputs active={activeDemo === "Inputs"} />
-      <Links active={activeDemo === "Links"} />
-      <Paginations active={activeDemo === "Paginations"} />
-      <Spinners active={activeDemo === "Spinners"} />
-      <Tooltips active={activeDemo === "Tooltips"} />
+    <div className={css.activeDemo}>
+      <Alerts active={data[activeIndex] === "Alerts"} />
+      <Buttons active={data[activeIndex] === "Buttons"} />
+      <Icons active={data[activeIndex] === "Icons"} />
+      <Inputs active={data[activeIndex] === "Inputs"} />
+      <Links active={data[activeIndex] === "Links"} />
+      <Paginations active={data[activeIndex] === "Paginations"} />
+      <Spinners active={data[activeIndex] === "Spinners"} />
+      <Tooltips active={data[activeIndex] === "Tooltips"} />
     </div>
   </div>
 );

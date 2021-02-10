@@ -38,11 +38,12 @@
     margin: 0;
     max-width: $menu-width;
     padding: 0;
+    overflow: hidden;
     width: 100%;
 
     ul.menuList,
     ul.menuActiveIndicator {
-      @include flex(c, m, col);
+      @include flex(c, t, col);
       margin: 0;
       padding: 0;
       width: 100%;
@@ -52,7 +53,7 @@
         @include font(label);
         cursor: pointer;
         list-style-type: none;
-        height: 52px;
+        min-height: 52px;
         min-width: $menu-collapse-width;
         padding: 0.5rem 2rem;
         text-transform: uppercase;
@@ -69,11 +70,12 @@
       @include absolute(0,0,0,0);
       background-color: $accent-color;
       color: $bg-color;
-      transition: clip-path 0.3s cubic-bezier(0,0,0.2,1);
-      z-index: 5;
+      overflow: hidden;
+      pointer-events: none;
+      transition: all 0.2s cubic-bezier(0,0,0.2,1);
       
       li.menuItem:hover {
-        color: $bg-color;
+        color: transparent;
       }
     }
   }
