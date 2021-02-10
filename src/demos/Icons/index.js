@@ -1,5 +1,6 @@
 import React from "react";
 import { Article, Section } from "../../components";
+import TargetIcon from "./TargetIcon/index.js";
 import ExpandIcon from "./ExpandIcon/index.js";
 import TickIcon from "./TickIcon/index.js";
 
@@ -15,6 +16,11 @@ const Icons = ({ active, className, style }) => (
       <TickIcon of="navigation" />
       <TickIcon of="pin" />
       <TickIcon of="cutlery" />
+    </Article>
+    <Article id="TargetIcons" title="Target">
+      <TargetIcon of="star" hoverIcon="star-outline" />
+      <TargetIcon of="bookmark" hoverIcon="bookmark-outline" />
+      <TargetIcon of="favorite" hoverIcon="favorite-outline" />
     </Article>
   </Section>
 );

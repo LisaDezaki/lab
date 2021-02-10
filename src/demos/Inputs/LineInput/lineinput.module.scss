@@ -65,5 +65,8 @@ $label-size: 24px;
   //  Has focus {
     .input:focus {
       border-color: $accent-color;
+      &+ .label {
+        color: $accent-color;
+      }
     }
 }

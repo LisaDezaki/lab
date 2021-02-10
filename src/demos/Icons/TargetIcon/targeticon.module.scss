@@ -1,0 +1,97 @@
+@import "src/css/utils";
+
+$icon-size: 60px;
+$subtext-color: rgba(0, 0, 0, 0.32);
+
+.iconWrapper {
+  background-color: $bg-color;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  color: inherit;
+  cursor: pointer;
+  height: $icon-size;
+  margin: 0.5rem 1rem;
+  padding: 0;
+  position: relative;
+  transition: border-color 0.25s cubic-bezier(0,0,0.2,1);
+  width: 60px;
+
+  i.icon {
+    @include absolute(0, 0, 0, 0);
+    @include flex(c, m);
+    border-radius: 50%;
+    font-size: 175%;
+    transition: all 0.25s cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .iconHoverEffect {
+    @include absolute(0,0,0,0);
+    animation: spin 2s linear infinite;
+  }
+  
+  .iconReticule {
+    @include absolute(3px,3px,3px,3px);
+    @include flex(c,m,row);
+    border-radius: 50%;
+    overflow: hidden;
+    animation: spin 1s linear infinite reverse;
+    &::before,
+    &::after {
+      outline: 1px solid red;
+      @include absolute(0,0,0,0);
+      @include flex(c,m,row);
+      background-color: $accent-color;
+      content: '';
+      transform: translate(150%) scale(1.05);
+      height: 100%;
+      width: 25%;
+    }
+    &::before {
+      clip-path: polygon(0 0, 100% 0, 50% 15%);
+    }
+    &::after {
+      clip-path: polygon(100% 100%, 0 100%, 50% 85%);
+    }
+  }
+
+  .iconSpinner {
+    @include absolute(0,0,0,0);
+    @include flex(c,m,row);
+    border: 1px solid $accent-color;
+    border-radius: 50%;
+    transform: scale(0.90);
+    &::before,
+    &::after {
+      @include absolute(-3px,-3px,-3px,-3px);
+      border: 5px solid $accent-color;
+      border-radius: 50%;
+      content: '';
+      transform: scale(1.07);
+    }
+    &::before {
+      clip-path: polygon(0 0, 0 50%, 50% 50%, 50% 0);
+    }
+    &::after {
+      clip-path: polygon(50% 50%, 50% 100%, 100% 100%, 100% 50%);
+    }
+  }
+
+  
+  .iconReticule,
+  .iconSpinner {
+    opacity: 0;
+    transition: opacity 0.2s linear;
+  }
+
+  &:hover {
+    border-color: $accent-color;
+    i.icon {
+      color: $accent-color;
+    }
+
+    .iconReticule,
+    .iconSpinner {
+      opacity: 1;
+    }
+  }
+}
