@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import cx from "classnames";
-import { DemoArea, Menu, MenuItem } from "./components";
+import { DemoArea, Menu } from "./components";
 import "./css/App.scss";
 
 const sections = [
@@ -18,24 +18,35 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      demo: null,
-      menuActive: true,
-      previousActiveIndex: null
+      activeIndex: null,
+      // demo: null,
+      // menuActive: true,
+      previousIndex: null
     };
   }
 
   closeMenu = () => {
     this.setState({
-      menuActive: false
+      activeIndex: null
     });
   };
 
-  selectSection = demo => {
-    return () => {
+  menuSelect = () => {
+    return (newIndex) => {
+      // console.log(`menuSelect(${newIndex})`)
+      this.setState({
+        previousIndex: this.state.activeIndex,
+        activeIndex: newIndex
+      });
+    }
+  }
+
+//   selectSection = index => {
+//     return () => {
       
-      // let previousIndex = sections.indexOf(this.state.demo);
-      // let nextIndex = sections.indexOf(demo);
-      // let incrementing = nextIndex > previousIndex;
+//       let previousIndex = this.state.previousIndex;
+//       let nextIndex = activeIndex;
+//       let incrementing = nextIndex > previousIndex;
       
 //       console.log(
 //         `Moving from
@@ -44,9 +55,14 @@ class App extends Component {
 // ${demo} (${nextIndex})`
 //       );
 
-      this.setState({ demo, menuActive: false });
-    };
-  };
+//       this.setState({
+//         previousIndex: this.state.activeIndex,
+//         activeIndex: index
+//       });
+
+//       // this.setState({ demo, menuActive: false });
+//     };
+//   };
 
   toggleMenu = () => {
     this.setState(state => ({
@@ -55,28 +71,30 @@ class App extends Component {
   };
 
   render() {
-    const { demo, menuActive } = this.state;
+    const { activeIndex, previousIndex } = this.state;
+
+//     let incrementing = activeIndex > previousIndex;
+//     console.log(
+// `Moving from
+// ${this.state.demo} (${previousIndex})
+// ${incrementing ? 'up' : 'down'} to
+// ${sections[activeIndex]} (${activeIndex})`
+//     );
 
     return (
-      <div className={cx("App", menuActive ? "menuActive" : null)}>
+      <div className={cx("App", activeIndex !== null ? "menuActive" : null)}>
         <Menu
-          active={menuActive}
+          activeIndex={activeIndex}
           data={sections}
-          demo={demo}
-          renderItem={item => (
-            <MenuItem
-              key={item}
-              active={demo === item}
-              label={item}
-              onClick={this.selectSection(item)}
-            />
-          )}
+          onChange={this.menuSelect()}
+          previousIndex={previousIndex}
         />
         <DemoArea
-          activeDemo={demo}
-          isMenuActive={menuActive}
-          onClick={this.closeMenu}
-          onMenuClick={this.toggleMenu}
+          activeIndex={activeIndex}
+          data={sections}
+          // isMenuActive={activeIndex !== null}
+          // onClick={this.closeMenu}
+          // onMenuClick={this.toggleMenu}
         />
       </div>
     );
