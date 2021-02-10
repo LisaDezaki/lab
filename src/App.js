@@ -19,8 +19,6 @@ class App extends Component {
     super(props);
     this.state = {
       activeIndex: null,
-      // demo: null,
-      // menuActive: true,
       previousIndex: null
     };
   }
@@ -33,36 +31,12 @@ class App extends Component {
 
   menuSelect = () => {
     return (newIndex) => {
-      // console.log(`menuSelect(${newIndex})`)
       this.setState({
         previousIndex: this.state.activeIndex,
         activeIndex: newIndex
       });
     }
   }
-
-//   selectSection = index => {
-//     return () => {
-      
-//       let previousIndex = this.state.previousIndex;
-//       let nextIndex = activeIndex;
-//       let incrementing = nextIndex > previousIndex;
-      
-//       console.log(
-//         `Moving from
-// ${this.state.demo} (${previousIndex})
-// ${incrementing ? 'up' : 'down'} to
-// ${demo} (${nextIndex})`
-//       );
-
-//       this.setState({
-//         previousIndex: this.state.activeIndex,
-//         activeIndex: index
-//       });
-
-//       // this.setState({ demo, menuActive: false });
-//     };
-//   };
 
   toggleMenu = () => {
     this.setState(state => ({
@@ -72,14 +46,6 @@ class App extends Component {
 
   render() {
     const { activeIndex, previousIndex } = this.state;
-
-//     let incrementing = activeIndex > previousIndex;
-//     console.log(
-// `Moving from
-// ${this.state.demo} (${previousIndex})
-// ${incrementing ? 'up' : 'down'} to
-// ${sections[activeIndex]} (${activeIndex})`
-//     );
 
     return (
       <div className={cx("App", activeIndex !== null ? "menuActive" : null)}>
@@ -92,9 +58,6 @@ class App extends Component {
         <DemoArea
           activeIndex={activeIndex}
           data={sections}
-          // isMenuActive={activeIndex !== null}
-          // onClick={this.closeMenu}
-          // onMenuClick={this.toggleMenu}
         />
       </div>
     );
