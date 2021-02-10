@@ -67,18 +67,14 @@
     }
 
     ul.menuActiveIndicator {
-      // outline: 2px solid $accent-color;
       @include absolute(0,0,0,0);
       background-color: $accent-color;
       color: $bg-color;
-      // color: transparent;
       overflow: hidden;
       pointer-events: none;
       transition: all 0.2s cubic-bezier(0,0,0.2,1);
-      // z-index: 5;
       
       li.menuItem:hover {
-        // color: $bg-color;
         color: transparent;
       }
     }
