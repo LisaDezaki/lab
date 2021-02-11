@@ -26,7 +26,7 @@ class App extends Component {
 
   menuSelect = () => {
     return (newIndex) => {
-      window.history.replaceState(null, sections[newIndex], `/${sections[newIndex].toLowerCase()}`);
+      window.history.replaceState(null, sections[newIndex], `/#${sections[newIndex].toLowerCase()}`);
       this.setState({
         previousIndex: this.state.activeIndex,
         activeIndex: newIndex
@@ -43,7 +43,7 @@ class App extends Component {
   render() {
     const { activeIndex, previousIndex } = this.state;
 
-    let urlIndex = sections.map(i => i.toLowerCase()).indexOf(window.location.pathname.substring(1));
+    let urlIndex = sections.map(i => i.toLowerCase()).indexOf(window.location.hash.substring(1));
     if (urlIndex === -1) { urlIndex = null; }
 
     return (
