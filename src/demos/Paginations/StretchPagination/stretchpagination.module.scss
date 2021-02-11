@@ -1,0 +1,54 @@
+@import "src/css/utils";
+
+$btn-size: 48px;
+
+.pagination {
+  @include flex(c, m);
+  padding: 0;
+  position: relative;
+
+  .pages {
+    position: relative;
+
+    .pageList,
+    .indicatorList {
+      @include flex(c, m, row);
+      margin: 0;
+      padding: 0;
+    }
+    .pageList {
+      flex-direction: row;
+    }
+    .indicator {
+      @include absolute(0, auto, 0, auto);
+      background-color: $accent-color;
+      height: $btn-size;
+      overflow: hidden;
+    }
+    .indicatorList {
+      @include absolute(0, auto, auto, 0);
+      pointer-events: none;
+
+      .page {
+        color: $white;
+      }
+    }
+  }
+
+  .prev,
+  .page,
+  .next {
+    @include flex(c, m);
+    color: $text-color;
+    cursor: pointer;
+    font-size: 150%;
+    font-weight: 500;
+    height: $btn-size;
+    margin: 0;
+    position: relative;
+    width: $btn-size;
+    &:hover {
+      color: $accent-color;
+    }
+  }
+}
