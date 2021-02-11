@@ -16,7 +16,9 @@
   }
 
   .title {
+    @include flex(c,m,col);
     @include font(display1);
+    margin-bottom: 0;
     span {
       color: $accent-color;
       font-size: 80%;
@@ -24,6 +26,14 @@
     }
     strong {
       font-weight: 400;
+    }
+
+    .subtitle {
+      @include font(label);
+      display: block;
+      color: darken($bg-color, 25%);
+      margin-top: -6px;
+      text-transform: uppercase;
     }
   }
 
