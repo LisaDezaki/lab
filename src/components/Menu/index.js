@@ -9,20 +9,21 @@ class Menu extends Component {
     const { activeIndex, className, data, onChange, previousIndex } = this.props;
 
     let itemSize = 100 / data.length;
-    let activeIndexAdjusted = activeIndex !== null ? activeIndex : -1;
+    let activeIndexAdjusted = activeIndex !== null ? activeIndex : data.length;
     let indicatorStyles = {
       top: `${itemSize * activeIndexAdjusted}%`,
-      bottom: `${itemSize * (data.length - activeIndexAdjusted) - itemSize}%`,
-      justifyContent: "center",
-      transition: "none"
+      bottom: `${itemSize * (data.length - activeIndexAdjusted) - itemSize}%`
+    };
+    let indicatorLabelStyles = {
+      transform: `translateY(-${(itemSize * activeIndexAdjusted) * data.length}%)`
     };
 
     if (activeIndex <= previousIndex ) {
-      indicatorStyles.justifyContent = "flex-start";
       indicatorStyles.transition = "top 0.2s cubic-bezier(0,0,0.2,1), bottom 0.2s cubic-bezier(0,0,0.2,1) 0.1s";
+      indicatorLabelStyles.transition = "transform 0.2s cubic-bezier(0,0,0.2,1)";
     } else {
-      indicatorStyles.justifyContent = "flex-end";
       indicatorStyles.transition = "bottom 0.2s cubic-bezier(0,0,0.2,1), top 0.2s cubic-bezier(0,0,0.2,1) 0.1s";
+      indicatorLabelStyles.transition = "transform 0.2s cubic-bezier(0,0,0.2,1) 0.1s";
     }
 
     return (
@@ -47,9 +48,11 @@ class Menu extends Component {
             ))}
           </ul>
           <ul className={cx(css.menuActiveIndicator, className)} style={indicatorStyles}>
-            <li className={cx(css.menuItem, className)}>
-              {data[activeIndex]}
-            </li>
+            {data.map((item, index) => (
+              <li key={index} className={cx(css.menuItem, className)} style={indicatorLabelStyles}>
+                {item}
+              </li>
+            ))}
           </ul>
         </div>
       </div>
