@@ -28,10 +28,13 @@ class Menu extends Component {
 
     return (
       <div className={cx(css.menu, activeIndex === null ? css.fullScreen : null, className)}>
-        <Logo size={40} />
+        <Logo size={48} />
         <h1 className={cx(css.title)}>
-          <span>CSS</span>
-          <strong>Lab</strong>
+          <div>
+            <span>CSS</span>
+            <strong>Lab</strong>
+          </div>
+          <span className={css.subtitle}>By Lisa Dezaki</span>
         </h1>
         <div className={css.menuListContainer}>
           <ul className={cx(css.menuList, className)}>
