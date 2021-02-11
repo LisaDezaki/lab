@@ -27,9 +27,7 @@ class Menu extends Component {
     }
 
     return (
-      <div
-        className={cx(css.menu, activeIndex === null ? css.fullScreen : null, className)}
-      >
+      <div className={cx(css.menu, activeIndex === null ? css.fullScreen : null, className)}>
         <Logo size={40} />
         <h1 className={cx(css.title)}>
           <span>CSS</span>
