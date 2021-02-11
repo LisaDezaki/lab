@@ -12,13 +12,13 @@ class Menu extends Component {
     let activeIndexAdjusted = activeIndex !== null ? activeIndex : data.length;
     let indicatorStyles = {
       top: `${itemSize * activeIndexAdjusted}%`,
-      bottom: `${itemSize * (data.length - activeIndexAdjusted) - itemSize}%`
+      bottom: `${itemSize * (data.length - activeIndexAdjusted) - itemSize}%`,
     };
     let indicatorLabelStyles = {
-      transform: `translateY(-${(itemSize * activeIndexAdjusted) * data.length}%)`
+      transform: `translateY(-${(itemSize * activeIndexAdjusted) * data.length}%)`,
     };
 
-    if (activeIndex <= previousIndex ) {
+    if (previousIndex === null || activeIndex <= previousIndex) {
       indicatorStyles.transition = "top 0.2s cubic-bezier(0,0,0.2,1), bottom 0.2s cubic-bezier(0,0,0.2,1) 0.1s";
       indicatorLabelStyles.transition = "transform 0.2s cubic-bezier(0,0,0.2,1)";
     } else {
