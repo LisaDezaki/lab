@@ -47,10 +47,9 @@ class App extends Component {
     if (urlIndex === -1) { urlIndex = null; }
 
     return (
-
       <Router>
-        <div className={cx("App", activeIndex !== null || urlIndex !== -1 ? "menuActive" : null)}>
-          <Route path="/">
+        <Route path="/*" render={() => (
+          <div className={cx("App", activeIndex !== null || urlIndex !== -1 ? "menuActive" : null)}>
             <Menu
               activeIndex={activeIndex || urlIndex}
               data={sections}
@@ -61,8 +60,8 @@ class App extends Component {
               activeIndex={activeIndex || urlIndex}
               data={sections}
             />
-          </Route>
-        </div>
+          </div>
+        )} />
       </Router>
     );
   }
